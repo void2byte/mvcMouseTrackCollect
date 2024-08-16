@@ -11,6 +11,7 @@ SettingsController::SettingsController(SettingsWidget *widget)
 
 
 void SettingsController::fillModelFromData() {
+    int d;
     model_settings->clear();
     model_settings->setHorizontalHeaderLabels(QStringList()
         << "Button Size"
