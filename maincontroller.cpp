@@ -21,7 +21,7 @@ MainController::MainController() {
             &SettingsController::fillModelFromData);
 
     connect(mouse_widget, &MouseWidget::moveResizeButton, settings_controller,
-            &SettingsController::fillModelFromData);
+            &SettingsController::appendNewRow);
 
 }
 
