@@ -110,12 +110,18 @@ void MouseWidget::paintEvent(QPaintEvent *event) {
 
     QVector<PenPoints> penPoints;
 
-    if(clicksData.size() > 0)
-        penPoints.append({{Qt::black, 3}, clicksData[clicksData.size()-1].track});
-    if(clicksData.size() > 1)
-        penPoints.append({{Qt::darkGray, 2}, clicksData[clicksData.size()-2].track});
-    if(clicksData.size() > 2)
-        penPoints.append({{Qt::gray, 1}, clicksData[clicksData.size()-3].track});
+    if(selectedClickDataForDraw.empty()) {
+        if(clicksData.size() > 0)
+            penPoints.append({{Qt::black, 3}, clicksData[clicksData.size()-1].track});
+        if(clicksData.size() > 1)
+            penPoints.append({{Qt::darkGray, 2}, clicksData[clicksData.size()-2].track});
+        if(clicksData.size() > 2)
+            penPoints.append({{Qt::gray, 1}, clicksData[clicksData.size()-3].track});
+    } else {
+        for(ClickData* row : selectedClickDataForDraw) {
+            //penPoints.append({{Qt::black, 3}, row->track});
+        }
+    }
 
     for (const auto& pp : penPoints) {
         painter.setPen(pp.pen);
@@ -131,6 +137,11 @@ void MouseWidget::mouseMoveEvent(QMouseEvent *event) {
     QWidget::mouseMoveEvent(event); // Вызов базового обработчика событий
 
     emit mouseMoveSig(p);
+}
+
+void MouseWidget::drawSelectedTracks(QList<ClickData*> selectedClickData)
+{
+    selectedClickDataForDraw = selectedClickData;
 }
 
 

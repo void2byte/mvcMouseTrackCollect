@@ -17,11 +17,17 @@ MainController::MainController() {
 
     qDebug() << mouse_widget->parent();
 
-    connect(mouse_widget, &MouseWidget::mouseMoveSig, settings_controller,
-            &SettingsController::fillModelFromData);
+    // connect(mouse_widget, &MouseWidget::mouseMoveSig, settings_controller,
+    //         &SettingsController::fillModelFromData);
+
+    connect(settings_widget, &SettingsWidget::selectionChanged, mouse_widget,
+            &MouseWidget::drawSelectedTracks);
 
     connect(mouse_widget, &MouseWidget::moveResizeButton, settings_controller,
             &SettingsController::appendNewRow);
+
+    connect(settings_widget, &SettingsWidget::deleteRows, settings_controller,
+            &SettingsController::removeRows);
 
 }
 

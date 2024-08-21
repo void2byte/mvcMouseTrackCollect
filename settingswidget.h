@@ -7,6 +7,8 @@
 #include <QTableView>
 #include <QStandardItemModel>
 
+#include "datamanager.h"
+
 
 class SettingsWidget : public QWidget {
     Q_OBJECT
@@ -19,9 +21,18 @@ public:
 
 signals:
 
-        void updateTable();
+    void deleteRows(QModelIndexList selectedIndexes);
+    void updateTable();
+    void selectionChanged(QList<ClickData*> selectedRows);
 
-private:
+private slots:
+
+    void onSelectionChanged();
+
+protected:
+
+    void keyPressEvent(QKeyEvent *event) override;
+
 
     QTableView *trackTableView;
 

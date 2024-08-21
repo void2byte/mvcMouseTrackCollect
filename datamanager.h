@@ -16,8 +16,7 @@ struct ClickData {
     QVector<qint64> times;
 };
 
-
-
+using ClickDataList = QList<ClickData>;
 
 class DataManager {
     DataManager();
@@ -33,13 +32,13 @@ public:
     DataManager(const DataManager&) = delete;
     void operator=(const DataManager&) = delete;
 
-    void saveDataToXml(const QVector<ClickData>& clicksData,
+    void saveDataToXml(const ClickDataList& clicksData,
                        const QString& fileName  = "MouseMoveData.xml");
 
-    QVector<ClickData> loadDataFromXml(
+    ClickDataList loadDataFromXml(
         const QString& fileName = "MouseMoveData.xml");
 
-    QVector<ClickData> clicksData;
+    ClickDataList clicksData;
 
 };
 

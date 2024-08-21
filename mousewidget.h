@@ -20,7 +20,7 @@ public:
     ~MouseWidget();
 
     DataManager&     dataManager = DataManager::instance();
-    QVector<ClickData>& clicksData   = dataManager.clicksData;
+    ClickDataList& clicksData   = dataManager.clicksData;
 
 
     void moveresizeTargetButton();
@@ -31,13 +31,19 @@ public:
     bool eventFilter(QObject *obj, QEvent *event) override;
     void paintEvent(QPaintEvent *event) override;
     void mouseMoveEvent(QMouseEvent *event) override;
+
 signals:
 
     void moveResizeButton();
     void mouseMoveSig(QPoint p);
 
+public slots:
+    
+    void drawSelectedTracks(QList<ClickData *> selectedClickData);
+
 private:
 
+    QList<ClickData*> selectedClickDataForDraw;
     QPushButton *button;
     MainController *controller;
 };
