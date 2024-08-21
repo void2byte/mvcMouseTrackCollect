@@ -1,0 +1,34 @@
+
+combined.txt
+count_text.bat
+mvcMouseTrackCollect_en_US.0000ts
+
+
+# Ignore build directories
+/build
+
+# Qt generated files
+*.moc
+*.qrc
+*.ui
+*.o
+*.obj
+*.so
+*.dylib
+*.dll
+*.exe
+*.out
+
+# QtCreator specific files
+*.pro.user
+*.qbs.user
+*.creator.user
+*.autosave
+*.user
+
+# QtCreator CMake specific files
+CMakeLists.txt.user
+
+# OS generated files
+.DS_Store
+Thumbs.db
