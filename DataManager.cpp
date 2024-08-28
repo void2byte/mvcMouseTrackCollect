@@ -5,6 +5,8 @@
 
 #include "DataManager.h"
 
+std::atomic<uint> ClickData::counter{0};
+
 DataManager::DataManager()
     : clicksData{ClickData()}
 {}
@@ -12,7 +14,7 @@ DataManager::DataManager()
 DataManager::~DataManager()
 {}
 
-void DataManager::saveDataToXml(const QVector<ClickData>& clicksData,
+void DataManager::saveDataToXml(const ClickDataList& clicksData,
                                 const QString& fileName /* = "MouseMoveData.xml" */) {
     QFile file(fileName);
     if (!file.open(QIODevice::WriteOnly | QIODevice::Truncate)) {
@@ -143,3 +145,33 @@ QVector<ClickData> DataManager::loadDataFromXml(const QString& fileName) {
     return clicksData;
 }
 
+
+double ClickData::calculateDistance(const QPoint& point1, const QPoint& point2) const
+{
+    int dx = point2.x() - point1.x();
+    int dy = point1.y() - point2.y();
+    return std::sqrt(dx * dx + dy * dy);
+}
+
+double ClickData::calculateCurveLength(const QVector<QPoint> &track) const
+{
+    if(track.empty())
+        return 0;
+
+    double length = 0.0;
+    for (int i = 1; i < track.size(); ++i) {
+        length += calculateDistance(track[i], track[i - 1]);
+    }
+    return length;
+}
+
+double ClickData::calculateDistance() const {
+    if (track.isEmpty()) {
+        return 0.0;  // Возвращаем 0 для пустого трека
+    }
+    return calculateDistance(track.first(), track.last());
+}
+
+double ClickData::calculateCurveLength() const {
+    return calculateCurveLength(track);
+}

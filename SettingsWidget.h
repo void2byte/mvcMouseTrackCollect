@@ -17,6 +17,7 @@ public:
 
     explicit SettingsWidget(QWidget *parent = nullptr);
 
+    QTableView *trackTableView;
     QStandardItemModel *tableModel;
 
 signals:
@@ -32,9 +33,6 @@ private slots:
 protected:
 
     void keyPressEvent(QKeyEvent *event) override;
-
-
-    QTableView *trackTableView;
 
 };
 

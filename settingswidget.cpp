@@ -9,9 +9,12 @@ SettingsWidget::SettingsWidget(QWidget *parent)
     QVBoxLayout *layout = new QVBoxLayout(this);
 
     trackTableView = new QTableView();
+#if FIRST
     trackTableView->setModel(tableModel);
+#endif // FIRST
     trackTableView->setSortingEnabled(true);
-    trackTableView->setSelectionMode(QAbstractItemView::ExtendedSelection);  // Позволяет выбирать несколько элементов
+    trackTableView->setSelectionBehavior(QAbstractItemView::SelectRows);
+    trackTableView->setSelectionMode(QAbstractItemView::ExtendedSelection);
 
     connect(trackTableView->selectionModel(), &QItemSelectionModel::selectionChanged,
             this, &SettingsWidget::onSelectionChanged);

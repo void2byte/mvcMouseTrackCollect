@@ -1,42 +1,46 @@
 #ifndef SETTINGSCONTROLLER_H
 #define SETTINGSCONTROLLER_H
 
-#include <QObject>
-#include <QStandardItemModel>
+#include <QAbstractTableModel>
 #include <QStringList>
 #include <QPoint>
-#include <QVector>
+#include <QList>
+#include "datamanager.h"
 
-#include "DataManager.h"
-#include "SettingsWidget.h"
 
-class SettingsController : public QObject {
+class SettingsController : public QAbstractTableModel {
     Q_OBJECT
 
 public:
-    explicit SettingsController(SettingsWidget* widget = nullptr);
+    explicit SettingsController(QObject *parent = nullptr);
 
-    void fillModelFromData();
+    // Переопределяем виртуальные методы QAbstractTableModel
+    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    int columnCount(const QModelIndex &parent = QModelIndex()) const override;
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
+    bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) override;
+    Qt::ItemFlags flags(const QModelIndex &index) const override;
+
+    void removeSelectedRows(QModelIndexList index); // Метод для удаления выделенных строк
+
 public slots:
-    void appendNewRow() {fillModelFromData();
-        //model_settings->appendRow(createRowItems(data_manager.clicksData.last()));
+    void ResetTableModel();
+private:
+    DataManager& data_manager = DataManager::instance();
+    QStringList headers = {
+        "Button Size",
+        "Straight Length/Time Ratio",
+        "Straight Length",
+        "Straight Length/Curve Length",
+        "Curve Length",
+        "Click Position",
+        "Window Position",
+        "Duration",
+        "Point Delay"
     };
 
-    void removeRows(QModelIndexList index);
-
-private:
-    SettingsWidget* settings_widget;
-    DataManager& data_manager = DataManager::instance();
-    QStandardItemModel *model_settings;
-
-    void initializeHeadersIfNeeded();
-    QList<QStandardItem*> createRowItems(const ClickData& click);
-    QList<QStandardItem*> updateRowItems(const ClickData &click);
-    void updateLastRow(const QList<QStandardItem *> &rowItems);
-
-    double calculateDistance(const QPoint& point1, const QPoint& point2) const;
-    double calculateCurveLength(const QVector<QPoint>& track) const;
-
 };
+
 
 #endif // SETTINGSCONTROLLER_H
