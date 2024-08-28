@@ -1,4 +1,4 @@
-#include "maincontroller.h"
+#include "MainController.h"
 #include <QDebug>
 #include <QApplication>
 

@@ -2,7 +2,7 @@
 #include <QLocale>
 #include <QTranslator>
 
-#include "maincontroller.h"
+#include "MainController.h"
 
 int main(int argc, char *argv[]) {
     QApplication a(argc, argv);

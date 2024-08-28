@@ -9,25 +9,27 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    datamanager.cpp \
-    main.cpp \
-    maincontroller.cpp \
-    mainwindow.cpp \
-    mousecontroller.cpp \
-    mousewidget.cpp \
-    settingscontroller.cpp \
-    settingswidget.cpp \
-    transformationcontroller.cpp
+    DataManager.cpp \
+    MainController.cpp \
+    MainWindow.cpp \
+    MouseController.cpp \
+    MouseWidget.cpp \
+    SettingsController.cpp \
+    SettingsModel.cpp \
+    SettingsWidget.cpp \
+    TransformaController.cpp \
+    main.cpp
 
 HEADERS += \
-    datamanager.h \
-    maincontroller.h \
-    mainwindow.h \
-    mousecontroller.h \
-    mousewidget.h \
-    settingscontroller.h \
-    settingswidget.h \
-    transformationcontroller.h
+    DataManager.h \
+    MainController.h \
+    MainWindow.h \
+    MouseController.h \
+    MouseWidget.h \
+    SettingsController.h \
+    SettingsModel.h \
+    SettingsWidget.h \
+    TransformaController.h
 
 #TRANSLATIONS += \
     #mvcMouseTrackCollect_en_US.ts

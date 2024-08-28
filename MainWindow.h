@@ -4,8 +4,8 @@
 #include <QMainWindow>
 #include <QDockWidget>
 
-#include "mousewidget.h"
-#include "settingswidget.h"
+#include "MouseWidget.h"
+#include "SettingsWidget.h"
 
 class MainWindow : public QMainWindow {
     Q_OBJECT

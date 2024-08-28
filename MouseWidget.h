@@ -6,7 +6,7 @@
 #include <QMouseEvent>
 #include <QPainter>
 
-#include "datamanager.h"
+#include "DataManager.h"
 
 
 class MainController;

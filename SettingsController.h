@@ -7,8 +7,8 @@
 #include <QPoint>
 #include <QVector>
 
-#include "datamanager.h"
-#include "settingswidget.h"
+#include "DataManager.h"
+#include "SettingsWidget.h"
 
 class SettingsController : public QObject {
     Q_OBJECT

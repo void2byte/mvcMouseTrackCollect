@@ -1,6 +1,6 @@
 #include <QDebug>
 
-#include "mousecontroller.h"
+#include "MouseController.h"
 
 
 

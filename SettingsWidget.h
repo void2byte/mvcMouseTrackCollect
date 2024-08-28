@@ -7,7 +7,7 @@
 #include <QTableView>
 #include <QStandardItemModel>
 
-#include "datamanager.h"
+#include "DataManager.h"
 
 
 class SettingsWidget : public QWidget {

@@ -3,7 +3,7 @@
 #include <QDebug>
 #include <QFile>
 
-#include "datamanager.h"
+#include "DataManager.h"
 
 DataManager::DataManager()
     : clicksData{ClickData()}

@@ -1,4 +1,4 @@
-#include "settingscontroller.h"
+#include "SettingsController.h"
 #include <QStandardItem>
 #include <cmath>
 

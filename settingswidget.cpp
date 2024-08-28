@@ -1,4 +1,4 @@
-#include "settingswidget.h"
+#include "SettingsWidget.h"
 #include <QVBoxLayout>
 #include <QKeyEvent>
 

@@ -1,4 +1,4 @@
-#include "mousewidget.h"
+#include "MouseWidget.h"
 
 #include <random>
 #include <QDockWidget>
