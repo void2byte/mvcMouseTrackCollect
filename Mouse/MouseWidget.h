@@ -19,13 +19,14 @@ public:
     MouseWidget(QWidget *parent = nullptr);
     ~MouseWidget();
 
-    DataManager&     dataManager = DataManager::instance();
-    ClickDataList& clicksData   = dataManager.clicksData;
+    DataManager&            dataManager = DataManager::instance();
+    const ClickDataList&    clicksData   = dataManager.clicksData;
 
-
+    QPushButton *button;
     void moveresizeTargetButton();
     QRect getButtonGeometry() const;
     QPoint getButtonPosition() const;
+    QList<const ClickData*> selectedClickDataForDraw;
 
 
     bool eventFilter(QObject *obj, QEvent *event) override;
@@ -34,17 +35,10 @@ public:
 
 signals:
 
-    void moveResizeButton();
     void mouseMoveSig(QPoint p);
-
-public slots:
-    
-    void drawSelectedTracks(QList<ClickData *> selectedClickData);
 
 private:
 
-    QList<ClickData*> selectedClickDataForDraw;
-    QPushButton *button;
     MainController *controller;
 };
 

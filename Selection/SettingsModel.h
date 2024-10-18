@@ -1,0 +1,6 @@
+#ifndef SETTINGSMODEL_H
+#define SETTINGSMODEL_H
+
+
+
+#endif // SETTINGSMODEL_H

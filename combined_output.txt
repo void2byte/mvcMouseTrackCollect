@@ -1,0 +1,2230 @@
+#ifndef DATAMANAGER_H
+#define DATAMANAGER_H
+
+#include <QVector>
+#include <QRect>
+#include <atomic>
+
+struct ClickData;
+
+struct ClickData {
+
+    ClickData() : id(nextId()) {}
+
+    QRect buttonRect{};        // Размеры и положение кнопки
+    QPoint clickPositionInButton{};    // Координаты клика внутри кнопки
+    QPoint globalClickPosition{};   // Координаты клика внутри окна
+    qint64 clickTime{};     // Время клика
+
+    QVector<QPoint> track{};
+    QVector<qint64> times{};
+
+    uint getId() const { return id; }
+
+    double calculateDistance(const QPoint& point1, const QPoint& point2) const;
+    double calculateDistance() const;
+
+    double calculateCurveLength(const QVector<QPoint>& track ) const;
+    double calculateCurveLength() const;
+
+private:
+    qsizetype id;
+
+    static std::atomic<uint> counter;  // Счетчик для генерации уникальных идентификаторов
+
+    static uint nextId() {
+        return counter++;
+    }
+};
+
+using ClickDataList = QList<ClickData>;
+
+class DataManager {
+    DataManager();
+    ~DataManager();
+
+public:
+
+    static DataManager& instance() {
+        static DataManager manager;
+        return manager;
+    }
+
+    DataManager(const DataManager&) = delete;
+    void operator=(const DataManager&) = delete;
+
+    void saveDataToXml(ClickDataList &clicksData,
+                       const QString& fileName  = "MouseMoveData.xml");
+
+    bool loadDataFromXml(
+        const QString& fileName = "MouseMoveData.xml");
+
+    ClickDataList clicksData;
+    ClickData* currentClickData;
+
+};
+
+double calculateDistance(const QPoint &point1, const QPoint &point2);
+
+double calculateCurveLength(const QVector<QPoint> &track);
+
+#endif // DATAMANAGER_H
+#ifndef TRASFORMACONTROLLER_H
+#define TRASFORMACONTROLLER_H
+
+#include <QObject>
+#include <QVector>
+#include <QPoint>
+#include <QDebug>
+#include "DataManager.h"
+#include <cmath>
+#include <random>
+#include <limits>
+
+struct PolarPoint {
+    double r;
+    double theta;
+    double acceleration;
+    qint64 delta_time;
+};
+
+class Transformation : public QObject
+{
+    Q_OBJECT
+
+public:
+    Transformation();
+
+    /*!
+     * \brief Преобразует данные кликов в полярные координаты и рассчитывает ускорение.
+     * \param clickData Объект ClickData, содержащий данные кликов.
+     * \return Список полярных координат.
+     */
+    QVector<PolarPoint> convertToPolarCoordinates(const ClickData &clickData);
+
+    /*!
+     * \brief Преобразует данные из полярных координат обратно в декартовые координаты.
+     * \param polarCoordinates Список полярных координат.
+     * \return Объект ClickData с восстановленными координатами.
+     */
+    ClickData convertToCartesianCoordinates(const QVector<PolarPoint> &polarCoordinates);
+
+    /*!
+     * \brief Фильтрует шум из данных кликов.
+     * \param clickData Данные кликов.
+     * \param threshold Пороговое значение для фильтрации.
+     * \return Отфильтрованный ClickData.
+     */
+    ClickData filterNoise(const ClickData &clickData, double threshold);
+
+    /*!
+     * \brief Интерполирует трек, добавляя дополнительные точки.
+     * \param clickData Данные кликов.
+     * \param numInterpolatedPoints Количество точек для интерполяции.
+     * \return ClickData с интерполированными точками.
+     */
+    ClickData interpolateTrack(const ClickData &clickData, int numInterpolatedPoints);
+
+    /*!
+     * \brief Анализирует скорость и ускорение.
+     * \param clickData Данные кликов.
+     * \return Пара значений, содержащая максимальную скорость и ускорение.
+     */
+    std::pair<double, double> analyzeSpeedAndAcceleration(const ClickData &clickData);
+
+    /*!
+     * \brief Преобразует координаты в заданную пользовательскую систему координат.
+     * \param clickData Данные кликов.
+     * \param origin Начало координат для новой системы.
+     * \param rotationAngle Угол поворота.
+     * \return Список преобразованных точек.
+     */
+    QVector<QPointF> convertToCustomCoordinates(const ClickData &clickData, const QPointF &origin, double rotationAngle);
+
+    /*!
+     * \brief Нормализует данные трека.
+     * \param clickData Данные кликов.
+     * \return Нормализованные данные кликов.
+     */
+    ClickData normalizeTrack(const ClickData &clickData);
+
+    /*!
+     * \brief Сравнивает два трека.
+     * \param track1 Первый трек.
+     * \param track2 Второй трек.
+     * \return Степень схожести между треками.
+     */
+    double compareTracks(const ClickData &track1, const ClickData &track2);
+
+private:
+    ClickData clickData;
+    QVector<PolarPoint> polarCoordinates;
+    QVector<QPointF> customCoordinates;
+};
+
+class TrackGenerator {
+public:
+    /*!
+     * \brief Генерирует случайный трек на основе исходных данных.
+     * \param baseClickData Исходные данные кликов.
+     * \param rnd_coefficient Коэффициент случайности.
+     * \param min_time_interval Минимальный интервал времени.
+     * \param max_time_interval Максимальный интервал времени.
+     * \param acceleration_range Диапазон случайного ускорения.
+     * \param deviation_range Диапазон отклонения от центра масс.
+     * \return Сгенерированные данные кликов.
+     */
+    static ClickData generateRandomTrack(const ClickData &baseClickData,
+                                         float rnd_coefficient  = 0.1,
+                                         int min_time_interval = 10,
+                                         int max_time_interval = 100,
+                                         double acceleration_range = 0.5,
+                                         double deviation_range = 5.0);
+};
+
+Transformation::Transformation() {}
+
+QVector<PolarPoint> Transformation::convertToPolarCoordinates(const ClickData &clickData) {
+    QVector<PolarPoint> polarCoordinates;
+    qDebug() << "Converting to polar coordinates";
+
+    // Проверяем, что оба списка track и times имеют одинаковый размер и содержат минимум 2 точки
+    if (clickData.track.size() < 2 || clickData.track.size() != clickData.times.size()) {
+        qDebug() << "Invalid click data: track size and times size mismatch or insufficient points";
+        return polarCoordinates;  // Если недостаточно данных или размеры не совпадают, возвращаем пустой список
+    }
+
+    QPoint startPoint = clickData.track.first();
+    qDebug() << "Start point:" << startPoint;
+
+    // Проходим по всем точкам
+    for (int i = 0; i < clickData.track.size(); ++i) {
+        // Вычисляем r и theta для текущей точки относительно стартовой
+        QPoint relativePoint = clickData.track[i] - startPoint;
+        double r = std::sqrt(std::pow(relativePoint.x(), 2) + std::pow(relativePoint.y(), 2));
+        double theta = std::atan2(relativePoint.y(), relativePoint.x());
+        qDebug() << "Point:" << clickData.track[i] << "Relative r:" << r << "Theta:" << theta;
+
+        // Рассчитываем ускорение, начиная со второй точки
+        double acceleration = 0;
+        qint64 deltaTime = 0;
+        if (i > 0) {
+            deltaTime = clickData.times[i] - clickData.times[i - 1];
+            qDebug() << "Delta time between points" << i - 1 << "and" << i << ":" << deltaTime;
+
+            if (deltaTime > 0) {
+                QPoint deltaPos = clickData.track[i] - clickData.track[i - 1];
+                double velocity = std::sqrt(std::pow(deltaPos.x(), 2) + std::pow(deltaPos.y(), 2)) / deltaTime;
+                qDebug() << "Velocity at point" << i << ":" << velocity;
+                if (i > 1) {
+                    QPoint prevDeltaPos = clickData.track[i - 1] - clickData.track[i - 2];
+                    qint64 prevDeltaTime = clickData.times[i - 1] - clickData.times[i - 2];
+                    qDebug() << "Previous delta time between points" << i - 2 << "and" << i - 1 << ":" << prevDeltaTime;
+
+                    if (prevDeltaTime > 0) {
+                        double prevVelocity = std::sqrt(std::pow(prevDeltaPos.x(), 2) + std::pow(prevDeltaPos.y(), 2)) / prevDeltaTime;
+                        acceleration = (velocity - prevVelocity) / deltaTime;
+                        qDebug() << "Acceleration at point" << i << ":" << acceleration;
+                    }
+                }
+            }
+        }
+
+        polarCoordinates.append({r, theta, acceleration, deltaTime});
+    }
+
+    return polarCoordinates;
+}
+
+ClickData Transformation::convertToCartesianCoordinates(const QVector<PolarPoint> &polarCoordinates) {
+    ClickData clickData;
+    qDebug() << "Converting to Cartesian coordinates";
+
+    if (polarCoordinates.size() < 2) {
+        qDebug() << "Insufficient polar coordinates to convert";
+        return clickData;
+    }
+
+    QPoint prevPoint;
+    double prevVelocity = 0.0;
+    qint64 currentTime = 0;
+    double prevX = 0.0;
+    double prevY = 0.0;
+
+    for (int i = 0; i < polarCoordinates.size(); ++i) {
+        const PolarPoint& polarPoint = polarCoordinates[i];
+
+        // Восстановление координат на основе r и theta
+        double x = polarPoint.r * std::cos(polarPoint.theta) + prevX;
+        double y = polarPoint.r * std::sin(polarPoint.theta) + prevY;
+        QPoint currentPoint(x, y);
+        qDebug() << "Polar point" << i << ": r=" << polarPoint.r << "theta=" << polarPoint.theta << " -> Cartesian point:" << currentPoint;
+
+        if (i > 0) {
+            // Восстановление времени
+            currentTime += polarPoint.delta_time;
+            qDebug() << "Current time for point" << i << ":" << currentTime;
+
+            // Добавляем восстановленные данные в ClickData
+            clickData.track.append(currentPoint);
+            clickData.times.append(currentTime);
+        } else {
+            // Для первой точки просто сохраняем координаты и время
+            clickData.track.append(currentPoint);
+            clickData.times.append(currentTime);
+        }
+
+        prevPoint = currentPoint;
+        prevX = x;
+        prevY = y;
+    }
+
+    return clickData;
+}
+
+ClickData Transformation::filterNoise(const ClickData &clickData, double threshold) {
+    ClickData filteredData;
+    qDebug() << "Filtering noise with threshold:" << threshold;
+
+    if (clickData.track.size() < 1) {
+        qDebug() << "No points to filter";
+        return filteredData;
+    }
+
+    filteredData.track.append(clickData.track.first());
+    filteredData.times.append(clickData.times.first());
+    qDebug() << "First point added:" << clickData.track.first();
+
+    for (int i = 1; i < clickData.track.size(); ++i) {
+        QPoint deltaPos = clickData.track[i] - clickData.track[i - 1];
+        double distance = std::sqrt(std::pow(deltaPos.x(), 2) + std::pow(deltaPos.y(), 2));
+        qDebug() << "Distance between points" << i - 1 << "and" << i << ":" << distance;
+
+        if (distance >= threshold) {
+            filteredData.track.append(clickData.track[i]);
+            filteredData.times.append(clickData.times[i]);
+            qDebug() << "Point" << i << "added after filtering:" << clickData.track[i];
+        }
+    }
+
+    return filteredData;
+}
+
+ClickData Transformation::interpolateTrack(const ClickData &clickData, int numInterpolatedPoints) {
+    ClickData interpolatedData;
+    qDebug() << "Interpolating track with" << numInterpolatedPoints << "points per segment";
+
+    if (clickData.track.size() < 2 || numInterpolatedPoints <= 0) {
+        qDebug() << "Insufficient points or invalid number of interpolations";
+        return clickData;
+    }
+
+    for (int i = 0; i < clickData.track.size() - 1; ++i) {
+        QPoint startPoint = clickData.track[i];
+        QPoint endPoint = clickData.track[i + 1];
+        qint64 startTime = clickData.times[i];
+        qint64 endTime = clickData.times[i + 1];
+
+        interpolatedData.track.append(startPoint);
+        interpolatedData.times.append(startTime);
+        qDebug() << "Start point added:" << startPoint << "at time" << startTime;
+
+        for (int j = 1; j <= numInterpolatedPoints; ++j) {
+            double t = static_cast<double>(j) / (numInterpolatedPoints + 1);
+            QPoint interpolatedPoint = startPoint + t * (endPoint - startPoint);
+            qint64 interpolatedTime = startTime + static_cast<qint64>(t * (endTime - startTime));
+
+            interpolatedData.track.append(interpolatedPoint);
+            interpolatedData.times.append(interpolatedTime);
+            qDebug() << "Interpolated point added:" << interpolatedPoint << "at time" << interpolatedTime;
+        }
+    }
+
+    // Добавляем последнюю точку
+    interpolatedData.track.append(clickData.track.last());
+    interpolatedData.times.append(clickData.times.last());
+    qDebug() << "End point added:" << clickData.track.last() << "at time" << clickData.times.last();
+
+    return interpolatedData;
+}
+
+std::pair<double, double> Transformation::analyzeSpeedAndAcceleration(const ClickData &clickData) {
+    double maxSpeed = 0.0;
+    double maxAcceleration = 0.0;
+    qDebug() << "Analyzing speed and acceleration";
+
+    if (clickData.track.size() < 2) {
+        qDebug() << "Insufficient points for analysis";
+        return {maxSpeed, maxAcceleration};
+    }
+
+    double prevSpeed = 0.0;
+    for (int i = 1; i < clickData.track.size(); ++i) {
+        QPoint deltaPos = clickData.track[i] - clickData.track[i - 1];
+        qint64 deltaTime = clickData.times[i] - clickData.times[i - 1];
+
+        if (deltaTime > 0) {
+            double speed = std::sqrt(std::pow(deltaPos.x(), 2) + std::pow(deltaPos.y(), 2)) / deltaTime;
+            maxSpeed = std::max(maxSpeed, speed);
+            qDebug() << "Speed at point" << i << ":" << speed;
+
+            if (i > 1) {
+                double acceleration = (speed - prevSpeed) / deltaTime;
+                maxAcceleration = std::max(maxAcceleration, acceleration);
+                qDebug() << "Acceleration at point" << i << ":" << acceleration;
+            }
+            prevSpeed = speed;
+        }
+    }
+
+    qDebug() << "Max speed:" << maxSpeed << "Max acceleration:" << maxAcceleration;
+    return {maxSpeed, maxAcceleration};
+}
+
+QVector<QPointF> Transformation::convertToCustomCoordinates(const ClickData &clickData, const QPointF &origin, double rotationAngle) {
+    QVector<QPointF> transformedPoints;
+    qDebug() << "Converting to custom coordinates with origin:" << origin << "and rotation angle:" << rotationAngle;
+    double cosAngle = std::cos(rotationAngle);
+    double sinAngle = std::sin(rotationAngle);
+
+    for (const QPoint &point : clickData.track) {
+        double translatedX = point.x() - origin.x();
+        double translatedY = point.y() - origin.y();
+
+        double rotatedX = translatedX * cosAngle - translatedY * sinAngle;
+        double rotatedY = translatedX * sinAngle + translatedY * cosAngle;
+
+        QPointF transformedPoint(rotatedX + origin.x(), rotatedY + origin.y());
+        transformedPoints.append(transformedPoint);
+        qDebug() << "Original point:" << point << "-> Transformed point:" << transformedPoint;
+    }
+
+    return transformedPoints;
+}
+
+ClickData Transformation::normalizeTrack(const ClickData &clickData) {
+    ClickData normalizedData;
+    qDebug() << "Normalizing track";
+
+    if (clickData.track.isEmpty()) {
+        qDebug() << "No points to normalize";
+        return normalizedData;
+    }
+
+    // Найти минимальные и максимальные значения координат
+    int minX = std::numeric_limits<int>::max();
+    int minY = std::numeric_limits<int>::max();
+    int maxX = std::numeric_limits<int>::min();
+    int maxY = std::numeric_limits<int>::min();
+
+    for (const QPoint &point : clickData.track) {
+        minX = std::min(minX, point.x());
+        minY = std::min(minY, point.y());
+        maxX = std::max(maxX, point.x());
+        maxY = std::max(maxY, point.y());
+    }
+    qDebug() << "Min X:" << minX << "Max X:" << maxX << "Min Y:" << minY << "Max Y:" << maxY;
+
+    // Нормализация координат в диапазон [0, 1]
+    for (const QPoint &point : clickData.track) {
+        double normalizedX = (point.x() - minX) / static_cast<double>(maxX - minX);
+        double normalizedY = (point.y() - minY) / static_cast<double>(maxY - minY);
+        QPoint normalizedPoint(normalizedX, normalizedY);
+        normalizedData.track.append(normalizedPoint);
+        qDebug() << "Original point:" << point << "-> Normalized point:" << normalizedPoint;
+    }
+
+    normalizedData.times = clickData.times;
+    return normalizedData;
+}
+
+double Transformation::compareTracks(const ClickData &track1, const ClickData &track2) {
+    if (track1.track.size() != track2.track.size() || track1.times.size() != track2.times.size()) {
+        return 0.0; // Если размеры не совпадают, считаем треки не схожими
+    }
+
+    double similarity = 0.0;
+    int n = track1.track.size();
+
+    for (int i = 0; i < n; ++i) {
+        QPoint delta = track1.track[i] - track2.track[i];
+        double distance = std::sqrt(std::pow(delta.x(), 2) + std::pow(delta.y(), 2));
+        similarity += distance;
+    }
+
+    // Нормализация схожести: чем меньше значение, тем больше схожесть
+    return 1.0 / (1.0 + similarity / n);
+}
+
+
+ClickData TrackGenerator::generateRandomTrack(const ClickData &baseClickData,
+                                              float rnd_coefficient,
+                                              int min_time_interval,
+                                              int max_time_interval,
+                                              double acceleration_range,
+                                              double deviation_range) {
+    ClickData newClickData;
+    if (baseClickData.track.isEmpty()) {
+        return newClickData;
+    }
+
+    std::random_device rd;
+    std::mt19937 gen(rd());
+
+    QPoint startPoint = baseClickData.track.first();
+    qint64 startTime = baseClickData.times.first();
+
+    newClickData.track.append(startPoint);
+    newClickData.times.append(startTime);
+
+    std::uniform_real_distribution<float> distX(-rnd_coefficient, rnd_coefficient);
+    std::uniform_real_distribution<float> distY(-rnd_coefficient, rnd_coefficient);
+    std::uniform_int_distribution<int> distTime(min_time_interval, max_time_interval);
+    std::uniform_real_distribution<double> distAccel(-acceleration_range, acceleration_range);
+    std::uniform_real_distribution<double> distDeviation(-deviation_range, deviation_range);
+
+    double cumulativeDeviation = 0.0;
+
+    for (int i = 1; i < baseClickData.track.size(); ++i) {
+        QPoint lastPoint = newClickData.track.last();
+        qint64 lastTime = newClickData.times.last();
+
+        // Случайное отклонение от предыдущей точки и добавление к центру масс
+        cumulativeDeviation += distDeviation(gen);
+        QPoint newPoint = lastPoint + QPoint(distX(gen) + cumulativeDeviation, distY(gen) + cumulativeDeviation);
+        qint64 newTime = lastTime + distTime(gen);
+
+        newClickData.track.append(newPoint);
+        newClickData.times.append(newTime);
+
+        // Добавление случайного ускорения
+        // ТРЕБУЕТСЯ РЕАЛИЗАЦИЯ
+        PolarPoint polar = { static_cast<double>(newPoint.manhattanLength()), 0.0, distAccel(gen), static_cast<qint64>(distTime(gen)) };
+        //newClickData.polarData.append(polar);
+    }
+
+    return newClickData;
+}
+
+#endif // TRASFORMACONTROLLER_H
+#include <QXmlStreamWriter>
+#include <QXmlStreamReader>
+#include <QDebug>
+#include <QFile>
+#include <QDir>
+#include <QDateTime>
+#include <QList>
+
+#include "DataManager.h"
+
+std::atomic<uint> ClickData::counter{0};
+
+DataManager::DataManager()
+    : currentClickData(new ClickData())
+{}
+
+DataManager::~DataManager()
+{
+    QDateTime currentDateTime = QDateTime::currentDateTime();
+    saveDataToXml(clicksData, /*currentDateTime.toString("yyyy-MM-dd_hh-mm-ss") + */"MouseMoveData.xml");
+}
+
+void DataManager::saveDataToXml(ClickDataList& clicksData,
+                                const QString& fileName /* = "MouseMoveData.xml" */) {
+    if(clicksData.size() < 1) {
+        qDebug()<<"данные не сохранены ClicksData.size() < 1";
+        return;
+    }
+    //удаляем все треки содержащие менне трех позиций
+    clicksData.removeIf([] (const ClickData& clc) {
+        return clc.track.size() < 3;
+        qDebug()<<"удален элемент: clicksData.removeIf([] (const ClickData& clc) { return clc.track.size() < 3;}";
+    });
+
+    QFile file(fileName);
+    if (!file.open(QIODevice::ReadWrite | QIODevice::Text | QIODevice::Truncate)) {
+        qDebug() << "Ошибка при открытии файла: " << fileName;
+        qDebug() << "Ошибка: " << file.errorString();
+        qDebug() << "Текущая директория:" << QDir::currentPath();
+        return;
+    }
+
+
+    QXmlStreamWriter xmlWriter(&file);
+    xmlWriter.setAutoFormatting(true);
+    xmlWriter.writeStartDocument();
+    xmlWriter.writeStartElement("Data");
+
+
+    xmlWriter.writeStartElement("Clicks");
+    for (const auto& click : clicksData) {
+        xmlWriter.writeStartElement("Click");
+
+        xmlWriter.writeStartElement("ButtonRect");
+        xmlWriter.writeAttribute("x", QString::number(click.buttonRect.x()));
+        xmlWriter.writeAttribute("y", QString::number(click.buttonRect.y()));
+        xmlWriter.writeAttribute("width", QString::number(click.buttonRect.width()));
+        xmlWriter.writeAttribute("height", QString::number(click.buttonRect.height()));
+        xmlWriter.writeEndElement(); // ButtonRect
+
+        xmlWriter.writeStartElement("ClickPosition");
+        xmlWriter.writeAttribute("x", QString::number(click.clickPositionInButton.x()));
+        xmlWriter.writeAttribute("y", QString::number(click.clickPositionInButton.y()));
+        xmlWriter.writeEndElement(); // ClickPosition
+
+        xmlWriter.writeStartElement("WindowPosition");
+        xmlWriter.writeAttribute("x", QString::number(click.globalClickPosition.x()));
+        xmlWriter.writeAttribute("y", QString::number(click.globalClickPosition.y()));
+        xmlWriter.writeEndElement(); // WindowPosition
+
+        xmlWriter.writeTextElement("ClickTime", QString::number(click.clickTime));
+
+        // Запись данных о движениях мыши для каждого клика
+        xmlWriter.writeStartElement("MouseMoves");
+        auto trackIt = click.track.constBegin();
+        auto timesIt = click.times.constBegin();
+
+        while (trackIt != click.track.constEnd() && timesIt != click.times.constEnd()) {
+            xmlWriter.writeStartElement("MouseMove");
+
+            xmlWriter.writeStartElement("Position");
+            xmlWriter.writeAttribute("x", QString::number(trackIt->x()));
+            xmlWriter.writeAttribute("y", QString::number(trackIt->y()));
+            xmlWriter.writeEndElement(); // Position
+
+            xmlWriter.writeTextElement("MoveTime", QString::number(*timesIt));
+
+            xmlWriter.writeEndElement(); // MouseMove
+
+            ++trackIt;
+            ++timesIt;
+        }
+        xmlWriter.writeEndElement(); // MouseMoves
+
+        xmlWriter.writeEndElement(); // Click
+    }
+    xmlWriter.writeEndElement(); // Clicks
+
+    xmlWriter.writeEndElement(); // Data
+    xmlWriter.writeEndDocument();
+
+    file.close();
+
+    qDebug() << "Файл успешно сохранен:" << fileName;
+    qDebug() << "в директории:" << QDir::currentPath();
+}
+
+bool DataManager::loadDataFromXml(const QString& fileName) {
+
+    QFile file(fileName);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qDebug() << "Ошибка при открытии файла: " << fileName;
+        return false;
+    }
+
+    QXmlStreamReader xmlReader(&file);
+    ClickData _currentClickData;
+
+    while (!xmlReader.atEnd() && !xmlReader.hasError()) {
+        xmlReader.readNext();
+        if (xmlReader.isStartElement()) {
+            if (xmlReader.name().compare("Click") == 0) {
+                _currentClickData = ClickData();
+            } else if (xmlReader.name().compare("ButtonRect") == 0) {
+                QXmlStreamAttributes attrs = xmlReader.attributes();
+                _currentClickData.buttonRect.setX(attrs.value("x").toInt());
+                _currentClickData.buttonRect.setY(attrs.value("y").toInt());
+                _currentClickData.buttonRect.setWidth(attrs.value("width").toInt());
+                _currentClickData.buttonRect.setHeight(attrs.value("height").toInt());
+            } else if (xmlReader.name().compare("ClickPosition") == 0) {
+                QXmlStreamAttributes attrs = xmlReader.attributes();
+                _currentClickData.clickPositionInButton.setX(attrs.value("x").toInt());
+                _currentClickData.clickPositionInButton.setY(attrs.value("y").toInt());
+            } else if (xmlReader.name().compare("WindowPosition") == 0) {
+                QXmlStreamAttributes attrs = xmlReader.attributes();
+                _currentClickData.globalClickPosition.setX(attrs.value("x").toInt());
+                _currentClickData.globalClickPosition.setY(attrs.value("y").toInt());
+            } else if (xmlReader.name().compare("ClickTime") == 0) {
+                _currentClickData.clickTime = xmlReader.readElementText().toLongLong();
+            } else if (xmlReader.name().compare("MouseMove") == 0) {
+                QPoint pos;
+                qint64 time{};
+                if (xmlReader.readNextStartElement() && xmlReader.name().compare("Position") == 0) {
+                    QXmlStreamAttributes attrs = xmlReader.attributes();
+                    pos.setX(attrs.value("x").toInt());
+                    pos.setY(attrs.value("y").toInt());
+                }
+
+                xmlReader.readNext();
+
+                if (xmlReader.readNextStartElement() && xmlReader.name().compare("MoveTime") == 0) {
+                    QString moveTimeText = xmlReader.readElementText();
+                    bool success = false;
+                    time = moveTimeText.toULongLong(&success);
+                    if (!success) {
+                        qWarning() << "Не удалось преобразовать MoveTime в число из строки" << xmlReader.readElementText();
+                    }
+                } else {
+                    qDebug() << "Следующий элемент не является StartElement или это не MoveTime";
+                }
+                _currentClickData.track.append(pos);
+                _currentClickData.times.append(time);
+            }
+        } else if (xmlReader.isEndElement()) {
+            if (xmlReader.name().compare("Click") == 0) {
+                if (!_currentClickData.track.isEmpty() && !_currentClickData.times.isEmpty()) {
+                    clicksData.append(_currentClickData);
+                } else {
+                    qDebug() << "Ошибка: Неполные данные для Click";
+                }
+            }
+        }
+    }
+
+    if (xmlReader.hasError()) {
+        qDebug() << "Ошибка чтения XML:" << xmlReader.errorString();
+    }
+
+    file.close();
+    return true;
+}
+
+
+double ClickData::calculateDistance(const QPoint& point1, const QPoint& point2) const
+{
+    int dx = point2.x() - point1.x();
+    int dy = point1.y() - point2.y();
+    return std::sqrt(dx * dx + dy * dy);
+}
+
+double ClickData::calculateCurveLength(const QVector<QPoint> &track) const
+{
+    if(track.empty())
+        return 0;
+
+    double length = 0.0;
+    for (int i = 1; i < track.size(); ++i) {
+        length += calculateDistance(track[i], track[i - 1]);
+    }
+    return length;
+}
+
+double ClickData::calculateDistance() const {
+    if (track.isEmpty()) {
+        return 0.0;  // Возвращаем 0 для пустого трека
+    }
+    return calculateDistance(track.first(), track.last());
+}
+
+double ClickData::calculateCurveLength() const {
+    return calculateCurveLength(track);
+}
+
+
+double calculateDistance(const QPoint &point1, const QPoint &point2) {
+    int dx = point2.x() - point1.x();
+    int dy = point1.y() - point2.y();
+    return std::sqrt(dx * dx + dy * dy);
+}
+
+
+double calculateCurveLength(const QVector<QPoint> &track) {
+    if (track.empty())
+        return 0;
+
+    double length = 0.0;
+    for (int i = 1; i < track.size(); ++i) {
+        length += calculateDistance(track[i], track[i - 1]);
+    }
+    return length;
+}
+#include <QApplication>
+#include <QLocale>
+#include <QTranslator>
+
+#include "Main/MainController.h"
+
+
+int main(int argc, char *argv[]) {
+
+    QApplication a(argc, argv);
+
+    MainController controller;
+
+    return a.exec();
+}
+// #include "TransformaController.h"
+// #include <cmath>
+// #include <random>
+
+
+// QVector<PolarPoint> convertToPolarCoordinates(const ClickData &clickData) {
+//     QVector<PolarPoint> polarCoordinates;
+
+//     // Проверяем, что оба списка track и times имеют одинаковый размер и содержат минимум 2 точки
+//     if (clickData.track.size() < 2 || clickData.track.size() != clickData.times.size()) {
+//         return polarCoordinates;  // Если недостаточно данных или размеры не совпадают, возвращаем пустой список
+//     }
+
+//     QPoint startPoint = clickData.track.first();
+
+//     // Проходим по всем точкам
+//     for (int i = 0; i < clickData.track.size(); ++i) {
+//         // Вычисляем r и theta для текущей точки относительно стартовой
+//         QPoint relativePoint = clickData.track[i] - startPoint;
+//         double r = std::sqrt(std::pow(relativePoint.x(), 2) + std::pow(relativePoint.y(), 2));
+//         double theta = std::atan2(relativePoint.y(), relativePoint.x());
+
+//         // Рассчитываем ускорение, начиная со второй точки
+//         double acceleration = 0;
+//         qint64 deltaTime = 0;
+//         if (i > 0) {
+//             deltaTime = clickData.times[i] - clickData.times[i - 1];
+
+//             if (deltaTime > 0) {
+//                 QPoint deltaPos = clickData.track[i] - clickData.track[i - 1];
+//                 double velocity = std::sqrt(std::pow(deltaPos.x(), 2) + std::pow(deltaPos.y(), 2)) / deltaTime;
+//                 if (i > 1) {
+//                     QPoint prevDeltaPos = clickData.track[i - 1] - clickData.track[i - 2];
+//                     qint64 prevDeltaTime = clickData.times[i - 1] - clickData.times[i - 2];
+
+//                     if (prevDeltaTime > 0) {
+//                         double prevVelocity = std::sqrt(std::pow(prevDeltaPos.x(), 2) + std::pow(prevDeltaPos.y(), 2)) / prevDeltaTime;
+//                         acceleration = (velocity - prevVelocity) / deltaTime;
+//                     }
+//                 }
+//             }
+//         }
+
+//         polarCoordinates.append({r, theta, acceleration, deltaTime});
+//     }
+
+//     return polarCoordinates;
+// }
+
+// ClickData convertToCartesianCoordinates(const QVector<PolarPoint> &polarCoordinates) {
+//     ClickData clickData;
+
+//     if (polarCoordinates.size() < 2) {
+//         return clickData;
+//     }
+
+//     QPoint prevPoint;
+//     double prevVelocity = 0.0;
+//     qint64 currentTime = 0;
+//     double prevX = 0.0;
+//     double prevY = 0.0;
+
+//     for (int i = 0; i < polarCoordinates.size(); ++i) {
+//         const PolarPoint& polarPoint = polarCoordinates[i];
+
+//         // Восстановление координат на основе r и theta
+//         double x = polarPoint.r * std::cos(polarPoint.theta) + prevX;
+//         double y = polarPoint.r * std::sin(polarPoint.theta) + prevY;
+//         QPoint currentPoint(x, y);
+
+//         if (i > 0) {
+//             // Восстановление времени
+//             currentTime += polarPoint.delta_time;
+
+//             // Добавляем восстановленные данные в ClickData
+//             clickData.track.append(currentPoint);
+//             clickData.times.append(currentTime);
+//         } else {
+//             // Для первой точки просто сохраняем координаты и время
+//             clickData.track.append(currentPoint);
+//             clickData.times.append(currentTime);
+//         }
+
+//         prevPoint = currentPoint;
+//         prevX = x;
+//         prevY = y;
+//     }
+
+//     return clickData;
+// }
+
+// // Реализация TrackGenerator
+// ClickData TrackGenerator::generateRandomTrack(const ClickData &baseClickData,
+//                                               float rnd_coefficient /* = 0.1*/,
+//                                               int min_time_interval /* = 10*/,
+//                                               int max_time_interval /* = 100*/) {
+//     ClickData newClickData = baseClickData;
+//     newClickData.track.reserve(baseClickData.track.size());
+//     newClickData.times.reserve(baseClickData.times.size());
+
+//     if (baseClickData.track.isEmpty()) {
+//         return newClickData;
+//     }
+
+//     std::random_device rd;
+//     std::mt19937 gen(rd());
+
+//     QPoint startPoint = baseClickData.track.first();
+//     qint64 startTime = baseClickData.times.first();
+
+//     newClickData.track.append(startPoint);
+//     newClickData.times.append(startTime);
+
+//     std::uniform_real_distribution<float> distX(-rnd_coefficient, rnd_coefficient);
+//     std::uniform_real_distribution<float> distY(-rnd_coefficient, rnd_coefficient);
+//     std::uniform_int_distribution<int> distTime(min_time_interval, max_time_interval);
+
+//     for (int i = 1; i < baseClickData.track.size(); ++i) {
+//         QPoint lastPoint = newClickData.track.last();
+//         qint64 lastTime = newClickData.times.last();
+
+//         QPoint newPoint = lastPoint + QPoint(distX(gen), distY(gen));
+//         qint64 newTime = lastTime + distTime(gen);
+
+//         newClickData.track.append(newPoint);
+//         newClickData.times.append(newTime);
+//     }
+
+//     return newClickData;
+// }
+#ifndef ARDUINOCOMMAND_H
+#define ARDUINOCOMMAND_H
+
+#include <QSerialPort>
+#include <QSerialPortInfo>
+#include <QDataStream>
+#include <QPoint>
+#include <QVBoxLayout>
+#include <QLabel>
+#include <QPushButton>
+#include <QWidget>
+#include <QThread>
+#include <QTimer>
+#include <QCursor>
+#include <QScreen>
+#include <cmath>
+
+#include "DataManager.h"
+
+// Определение флагов для команд
+#define FLAG_MOVE 0
+#define FLAG_CLICK_LEFT 1
+#define FLAG_CLICK_RIGHT 2
+#define FLAG_SCROLL 3
+#define FLAG_KEYPRESS 4
+#define FLAG_KEYRELEASE 5
+#define FLAG_KEYCOMBO 6
+#define FLAG_MODIFIER 7
+
+struct CommandList;
+
+#pragma pack(push, 1)
+struct CommandData {
+    uint8_t flag;      // Флаг команды
+    int16_t x;          // Данные для перемещения или скролла
+    int16_t y;          // Дополнительные данные
+    uint8_t key;       // Код клавиши
+    uint8_t modifier;  // Модификатор клавиши (Ctrl, Shift, Alt)
+};
+#pragma pack(pop)
+
+struct CommandList
+{
+    uint8_t flag;      // Флаг команды
+    int16_t x;          // Данные для перемещения или скролла
+    int16_t y;          // Дополнительные данные
+    uint8_t key;       // Код клавиши
+    uint8_t modifier;  // Модификатор клавиши (Ctrl, Shift, Alt)
+
+    qint64 delayMs;
+
+};
+
+
+// Структура для передачи данных
+#pragma pack(push, 1)  // Отключаем выравнивание для упрощения передачи
+struct MouseMovement {
+    int16_t x;         // Смещение по оси X
+    int16_t y;         // Смещение по оси Y
+    int16_t delayTime; // Задержка в миллисекундах
+};
+#pragma pack(pop)
+
+class PortSender;
+
+
+class ArduinoCommandWindow : public QWidget {
+    Q_OBJECT
+
+public:
+    explicit ArduinoCommandWindow(QWidget *parent = nullptr);
+    ~ArduinoCommandWindow();
+private:
+    const DataManager &dataManager = DataManager::instance();
+    PortSender *sender = nullptr;
+    QThread* threadSender;
+};
+
+
+
+class PortSender : public QObject {
+    Q_OBJECT
+
+    QVector<CommandList>* _cmdlst = nullptr;
+    QVector<CommandList>::iterator _lstit;
+
+    double coeff_x_mov = 1;
+    double coeff_y_mov = 1;
+
+    QTimer timer;
+
+public:
+    PortSender();
+
+    ~PortSender();
+
+    /**
+    * @brief Вычисляет коэффициент перемещения курсора (разница в движении с генерируемым платой перемещением)
+    * и отправляет команду на перемещение курсора.
+    *
+    * Эта функция:
+    * 1. Сохраняет текущее положение курсора.
+    * 2. Перемещает курсор в точку (0, 0) и отправляет команду для перемещения на определённое расстояние.
+    * 3. Рассчитывает коэффициент перемещения курсора, основываясь на конечном положении курсора.
+    * 4. Возвращает курсор на его исходную позицию.
+    *
+    * Примечание: Использует задержки для того, чтобы обеспечить завершение перемещения курсора перед выполнением вычислений.
+    */
+    void calcCoefficientDifferenceCursormovement();
+    /**
+     * @brief Умножает массив точек QPoint на скаляр с минимальным влиянием округления на результирующий вектор.
+    *
+     * @param arr Входной массив точек QPoint.
+    * @param scalarX Скаляр для умножения по x, scalarY по y.
+    */
+    void multiplyWithMinimalRounding(QVector<CommandList>* arr,
+                                     double scalarX, double scalarY);
+
+    void sendCommand(uint8_t flag, int16_t x = 0, int16_t y = 0,
+                     uint8_t key = 0, uint8_t modifier = 0);
+
+    void sendAndStartNewTimer();
+
+
+    void sendNew(QVector<CommandList>* list);
+
+    void sendLeftClick();
+
+    void sendRightClick();
+
+    void sendScroll(int16_t scrollAmount);
+
+    void sendKeyPress(uint8_t key);
+
+    void sendKeyRelease(uint8_t key);
+
+    void sendKeyCombo(uint8_t key, uint8_t modifier);
+
+    void sendModifier(uint8_t modifier, bool pressed);
+
+public slots:
+    // Обработчик данных, когда они готовы для чтения. для тестов
+    void handleReadyRead();
+
+private:
+
+    QSerialPort *serialPort = nullptr;
+
+};
+
+
+
+#endif // ARDUINOCOMMAND_H
+#include "ArduinoCommand.h"
+
+ArduinoCommandWindow::ArduinoCommandWindow(QWidget *parent)
+    : QWidget(parent, Qt::Window) {
+    setWindowTitle(tr("Arduino"));
+
+    QVBoxLayout *layout = new QVBoxLayout(this);
+
+    QLabel *label = new QLabel(tr("List of Commands for Arduino"), this);
+    layout->addWidget(label);
+
+    // Добавляем кнопки для команд (пример)
+    QPushButton *command1Button = new QPushButton(tr("mov"), this);
+    QPushButton *command2Button = new QPushButton(tr("scalar"), this);
+
+    layout->addWidget(command1Button);
+    layout->addWidget(command2Button);
+
+    // QThread* threadSender = new QThread;
+    // sender->moveToThread(threadSender);
+    // threadSender->start();
+
+    // загрузка терков из файла
+
+    sender = new PortSender();
+
+    // Связываем сигналы кнопок с действиями (например, отправка команды на Arduino)
+    connect(command1Button, &QPushButton::clicked, [&]() {
+        if (dataManager.clicksData.size() < 1) {
+            return;
+        }
+
+        const ClickData moves = dataManager.clicksData.last();
+        QVector<CommandList> *cmdlst = new QVector<CommandList>();
+
+        for (int i = 1; i < moves.track.size(); ++i) {
+            int16_t x = static_cast<int16_t>(
+                    moves.track.at(i).x() - moves.track.at(i - 1).x());
+            int16_t y = static_cast<int16_t>(
+                    moves.track.at(i).y() - moves.track.at(i - 1).y());
+            qint64 delayMs = moves.times.at(i) - moves.times.at(i - 1);
+
+             qDebug() << "{" << x << "," << y << "},";
+
+            cmdlst->append({FLAG_MOVE, x, y, 0, 0, delayMs});
+        }
+
+        if(sender == nullptr)
+            sender = new PortSender();
+
+        sender->sendNew(cmdlst);
+    });
+
+    connect(command2Button, &QPushButton::clicked,
+            sender, &PortSender::calcCoefficientDifferenceCursormovement);
+
+
+    setLayout(layout);
+}
+
+ArduinoCommandWindow::~ArduinoCommandWindow()
+{
+    threadSender->quit();
+    threadSender->deleteLater();
+}
+
+
+
+
+PortSender::PortSender()
+    : serialPort(new QSerialPort()) {
+
+    serialPort->setPortName("COM5");  // Укажите ваш реальный COM-порт
+    serialPort->setBaudRate(QSerialPort::Baud9600);
+
+
+    // Пытаемся открыть порт
+    if (!serialPort->open(QIODevice::ReadWrite)) {
+        qDebug() << "Не удалось открыть последовательный порт:" << serialPort->errorString();
+        return;
+    }
+
+    calcCoefficientDifferenceCursormovement();
+
+    connect(&timer, &QTimer::timeout, this, &PortSender::sendAndStartNewTimer);
+
+    //Подключаем сигнал готовности чтения к слоту для обработки данных. для тестов
+    connect(serialPort, &QSerialPort::readyRead, this,
+            &PortSender::handleReadyRead);
+
+}
+
+PortSender::~PortSender() {
+    if (serialPort && serialPort->isOpen()) {
+        serialPort->close();
+    }
+    delete serialPort;
+    serialPort = nullptr;
+}
+
+
+void PortSender::calcCoefficientDifferenceCursormovement()
+{
+    QPoint originalPosition = QCursor::pos();
+    QThread::msleep(500);
+    QCursor::setPos(0, 0);
+
+    QThread::msleep(500);
+
+
+    for(int i = 0; i < 200; ++i) {
+        this->sendCommand(FLAG_MOVE, 2);
+        QThread::msleep(8);
+    }
+
+    QThread::msleep(50);
+
+    int newXPosition = QCursor::pos().x();
+    if (newXPosition != 0) {
+        coeff_x_mov = double(400) / newXPosition;
+    } else {
+        coeff_x_mov = 1;
+    }
+
+    for(int i = 0; i < 200; ++i) {
+        this->sendCommand(FLAG_MOVE, 0, 2);
+        QThread::msleep(8);
+    }
+
+    QThread::msleep(50);
+
+    int newYPosition = QCursor::pos().y();
+    if (newYPosition != 0) {
+        coeff_y_mov = double(400) / newYPosition;
+    } else {
+        coeff_y_mov = 1;
+    }
+
+    qDebug() << "calcCoefficientDifferenceCursormovement x: " << coeff_x_mov
+             << " y: " << coeff_y_mov << "\n"
+             << "arduno mov from 0 to new x pos: "<< newXPosition << "\n"
+             << "arduno mov from 0 to new y pos: "<< newYPosition;
+
+    QCursor::setPos(originalPosition);
+
+    QThread::msleep(20);
+}
+
+
+void PortSender::multiplyWithMinimalRounding(QVector<CommandList>* arr,
+                                             double scalarX, double scalarY) {
+
+    double errorX = 0.0;  // Переменная для накопления ошибки округления по X
+    double errorY = 0.0;  // Переменная для накопления ошибки округления по Y
+    //для теста
+    QVector<QPoint> before;
+    QVector<QPoint> after;
+
+    for (auto& cmd : *arr) {
+        // Для координаты X
+        before.append(QPoint(cmd.x, cmd.y));
+        double productX = cmd.x * scalarX + errorX;
+        double productY = cmd.y * scalarY + errorY;
+
+        cmd.x = static_cast<int16_t>(std::round(productX));
+        cmd.y = static_cast<int16_t>(std::round(productY));
+        after.append(QPoint(cmd.x, cmd.y));
+        errorX = productX - cmd.x;
+        errorY = productY - cmd.y;
+    }
+
+    // проверка общей длинны трека после перемножения
+
+    double test = calculateCurveLength(before);
+
+    double result = calculateCurveLength(after);
+
+    qDebug() << "result " << result << "before " << test << "result / before "
+             << double(result / test) << "скаляр по x: " << scalarX << "y" << scalarY;
+}
+
+
+void PortSender::sendCommand(uint8_t flag, int16_t x, int16_t y, uint8_t key, uint8_t modifier) {
+    if (!serialPort->isOpen()) {
+        qDebug() << "Ошибка: последовательный порт закрыт!";
+        return;
+    }
+
+    CommandData command = { flag, x, y, key, modifier };
+    QByteArray data(reinterpret_cast<const char*>(&command), sizeof(CommandData));
+
+    // Попытка отправить данные в порт
+    qint64 bytesWritten = serialPort->write(data);
+    if (bytesWritten == -1) {
+        qDebug() << "Ошибка записи в последовательный порт:" << serialPort->errorString();
+        return;
+    }
+
+    // Проверка, что данные записаны
+    if (!serialPort->waitForBytesWritten(1000)) {
+        qDebug() << "Ошибка: данные не были записаны в порт за 1 секунду.";
+    } else {
+        //qDebug() << "X:" << x << "Y:" << y;
+    }
+}
+
+
+void PortSender::sendAndStartNewTimer() {
+
+    if(_lstit < _cmdlst->end()) {
+
+        this->sendCommand(FLAG_MOVE, _lstit->x, _lstit->y,
+                          _lstit->key, _lstit->modifier);
+
+        //qDebug() << "X:" << _lstit->x << "Y:" << _lstit->y << "T" << _lstit->delayMs;
+        timer.start(_lstit->delayMs);
+        _lstit++;
+    } else {
+        timer.stop();
+    }
+
+}
+
+
+void PortSender::sendNew(QVector<CommandList>* list) {
+    if(list->empty()) {
+        qDebug() << "в PortSender::sendNew передан путой список";
+        return;
+    }
+
+    multiplyWithMinimalRounding(list, coeff_x_mov, coeff_y_mov);
+
+    _cmdlst = list; _lstit = _cmdlst->begin();
+    timer.start(10);
+}
+
+
+void PortSender::sendLeftClick() {
+    sendCommand(FLAG_CLICK_LEFT);
+}
+
+void PortSender::sendRightClick() {
+    sendCommand(FLAG_CLICK_RIGHT);
+}
+
+void PortSender::sendScroll(int16_t scrollAmount) {
+    sendCommand(FLAG_SCROLL, 0, scrollAmount);
+}
+
+void PortSender::sendKeyPress(uint8_t key) {
+    sendCommand(FLAG_KEYPRESS, 0, 0, key);
+}
+
+void PortSender::sendKeyRelease(uint8_t key) {
+    sendCommand(FLAG_KEYRELEASE, 0, 0, key);
+}
+
+void PortSender::sendKeyCombo(uint8_t key, uint8_t modifier) {
+    sendCommand(FLAG_KEYCOMBO, 0, 0, key, modifier);
+}
+
+void PortSender::sendModifier(uint8_t modifier, bool pressed) {
+    uint8_t flag = pressed ? FLAG_MODIFIER : FLAG_KEYRELEASE;
+    sendCommand(flag, 0, 0, 0, modifier);
+}
+
+
+
+void PortSender::handleReadyRead() {
+    while (serialPort->canReadLine()) {
+        QByteArray data = serialPort->readLine();  // Читаем одну строку
+        if (!data.isEmpty()) {
+            qDebug() << data;
+        }
+    }
+}
+
+
+
+#ifndef MAINCONTROLLER_H
+#define MAINCONTROLLER_H
+#include <QMouseEvent>
+#include <QKeyEvent>
+#include <QElapsedTimer>
+#include <QPainter>
+#include <QObject>
+
+#include "Main/MainWindow.h"
+#include "DataManager.h"
+#include "Mouse/MouseWidget.h"
+#include "Mouse/MouseController.h"
+#include "Selection/SettingsWidget.h"
+#include "Selection/SettingsController.h"
+//#include "SettingsModel.h"
+
+
+
+class MainController : public QObject {
+
+    Q_OBJECT
+
+public:
+    MainController();
+
+    MainWindow*         main_window;
+    MouseWidget*        mouse_widget;
+    MouseController*    mouse_controller;
+    SettingsWidget*     settings_widget;
+    SettingsController* settings_controller;
+
+};
+
+#endif // MAINCONTROLLER_H
+#ifndef MAINWINDOW_H
+#define MAINWINDOW_H
+
+#include <QMainWindow>
+#include <QDockWidget>
+#include <QMenuBar>
+#include <QAction>
+
+#include "Mouse/MouseWidget.h"
+#include "Selection/SettingsWidget.h"
+#include "InputEmulator/ArduinoCommand.h"
+
+class MainWindow : public QMainWindow {
+    Q_OBJECT
+public:
+    MainWindow(QWidget *parent = nullptr);
+
+    MouseWidget     *mouse_widget;
+    QDockWidget     *settingsDock;
+
+    SettingsWidget  *settings_widget;
+    QDockWidget     *mouseDock;
+
+private slots:
+    void openArduinoCommandWindow(); // Слот для открытия окна с командами для Arduino
+
+private:
+    ArduinoCommandWindow *arduinoCommandWindow; // Указатель на новое окно
+    QMenu *fileMenu;          // Пункт меню "Файл"
+    QAction *arduinoCommandAction; // Действие для открытия окна команд
+};
+
+
+#endif // MAINWINDOW_H
+#include "Main/MainController.h"
+#include <QDebug>
+#include <QApplication>
+
+
+MainController::MainController() {
+
+    main_window         = new MainWindow();
+    mouse_widget = main_window->mouse_widget;
+    mouse_controller    = new MouseController(mouse_widget);
+
+    settings_widget = main_window->settings_widget;
+    settings_controller = new SettingsController(settings_widget);
+    settings_widget->trackTableView->setModel(settings_controller->proxyModel);
+
+    main_window->mouse_widget = mouse_widget;
+    main_window->settings_widget = settings_widget;
+    main_window->show();
+
+    connect(mouse_controller, &MouseController::buttonClick,
+            settings_controller, &SettingsController::insertRowTableModel);
+
+    connect(mouse_controller, &MouseController::buttonClick,
+            settings_widget->trackTableView, &QTableView::clearSelection);
+
+    connect(mouse_controller, &MouseController::buttonClick,
+            settings_widget, &SettingsWidget::scrollToBottom);
+
+
+    connect(settings_widget->trackTableView->selectionModel(), &QItemSelectionModel::selectionChanged,
+            this, [this]() {
+                mouse_controller->takeIndexSelectedRows(
+                    settings_widget->trackTableView->selectionModel()->selectedRows());
+            });
+
+
+    connect(settings_widget, &SettingsWidget::deleteRows,
+            this, [&](QModelIndexList list) {
+        settings_controller->removeSelectedRows(list);
+        mouse_controller->takeIndexSelectedRows(
+            settings_widget->trackTableView->selectionModel()->selectedRows());
+    });
+
+    settings_widget->trackTableView->resizeColumnsToContents();
+    connect(settings_controller, &SettingsController::rowsInserted,
+            settings_widget->trackTableView, &QTableView::resizeColumnsToContents);
+
+
+}
+
+
+#include "Main\MainWindow.h"
+#include <QDebug>
+
+
+
+MainWindow::MainWindow(QWidget *parent)
+    : QMainWindow{parent} {
+
+    this->resize(1000, 600);
+
+    mouse_widget = new MouseWidget(this);
+
+    mouseDock = new QDockWidget(tr("make track"), this);
+
+    mouseDock->setWidget(mouse_widget);
+    addDockWidget(Qt::LeftDockWidgetArea, mouseDock);
+
+    settings_widget = new SettingsWidget(this);
+
+    settingsDock = new QDockWidget(tr("Settings"), this);
+
+    settingsDock->setWidget(settings_widget);
+    addDockWidget(Qt::RightDockWidgetArea, settingsDock);
+
+    arduinoCommandWindow = new ArduinoCommandWindow(this);
+    // Создаем меню
+    fileMenu = menuBar()->addMenu(tr("&File"));
+
+    // Создаем действие для пункта меню "Команды для Arduino"
+    arduinoCommandAction = new QAction(tr("Open Arduino Command Window"), this);
+    fileMenu->addAction(arduinoCommandAction);
+
+    // Подключаем слот для открытия окна команд
+    connect(arduinoCommandAction, &QAction::triggered, this,
+            &MainWindow::openArduinoCommandWindow);
+}
+
+
+
+// Реализуем слот для открытия окна с командами для Arduino
+void MainWindow::openArduinoCommandWindow() {
+    if (!arduinoCommandWindow) {
+        arduinoCommandWindow = new ArduinoCommandWindow(this); // Создаем окно, если еще не создано
+        qDebug("arduinComandWindow create");
+    }
+    arduinoCommandWindow->show(); // Показываем окно
+}
+#ifndef MOUSECONTROLLER_H
+#define MOUSECONTROLLER_H
+
+#include <QObject>
+#include <Mouse/MouseWidget.h>
+#include <QElapsedTimer>
+#include <QVector>
+#include <QApplication>
+#include <QKeyEvent>
+#include <QModelIndexList>
+
+#include <DataManager.h>
+#include <Mouse/MouseWidget.h>
+
+class MouseController : public QObject
+{
+    Q_OBJECT
+public:
+    MouseController(MouseWidget *view);
+
+    void handleButtonClicked();
+    void appendMouseMove(QPoint pos);
+    void handleKeyPressEvent(QKeyEvent *event);
+
+
+signals:
+    void buttonClick();
+
+public slots:
+              //void appendButtonData(QRect btnsize);
+
+    void takeIndexSelectedRows(QModelIndexList indexList);
+private:
+    MouseWidget*    mouse_widget;
+    DataManager&    dataManager =   DataManager::instance();
+    ClickDataList&  clicksData =    dataManager.clicksData;
+    QVector<QPoint> track_arr;
+    QVector<qint64> times_arr;
+    QElapsedTimer   timer;
+    
+};
+
+#endif // MOUSECONTROLLER_H
+#ifndef MOUSEWIDGET_H
+#define MOUSEWIDGET_H
+
+#include <QWidget>
+#include <QPushButton>
+#include <QMouseEvent>
+#include <QPainter>
+
+#include "DataManager.h"
+
+
+class MainController;
+
+class MouseWidget : public QWidget {
+    Q_OBJECT
+
+public:
+
+    MouseWidget(QWidget *parent = nullptr);
+    ~MouseWidget();
+
+    DataManager&            dataManager = DataManager::instance();
+    const ClickDataList&    clicksData   = dataManager.clicksData;
+
+    QPushButton *button;
+    void moveresizeTargetButton();
+    QRect getButtonGeometry() const;
+    QPoint getButtonPosition() const;
+    QList<const ClickData*> selectedClickDataForDraw;
+
+
+    bool eventFilter(QObject *obj, QEvent *event) override;
+    void paintEvent(QPaintEvent *event) override;
+    void mouseMoveEvent(QMouseEvent *event) override;
+
+signals:
+
+    void mouseMoveSig(QPoint p);
+
+private:
+
+    MainController *controller;
+};
+
+#endif // MOUSEWIDGET_H
+
+#include <QDebug>
+
+#include "Mouse/MouseController.h"
+#include "qabstractitemmodel.h"
+
+
+
+MouseController::MouseController(MouseWidget *view)
+    : mouse_widget(view) {
+
+    timer.start();
+
+    connect(mouse_widget->button, &QPushButton::clicked, this,
+            &MouseController::handleButtonClicked);
+
+    connect(mouse_widget, &MouseWidget::mouseMoveSig, this,
+            &MouseController::appendMouseMove);
+
+}
+
+
+void MouseController::handleButtonClicked() {
+
+    auto currentClDt = dataManager.currentClickData;
+    currentClDt->clickTime =       timer.elapsed();
+    QPoint cursor = mouse_widget->mapFromGlobal(mouse_widget->cursor().pos());
+    currentClDt->buttonRect =      mouse_widget->getButtonGeometry();
+    currentClDt->clickPositionInButton =   cursor - mouse_widget->getButtonPosition();
+    currentClDt->globalClickPosition =  cursor;
+
+    emit buttonClick();
+
+    timer.restart();
+    mouse_widget->moveresizeTargetButton();
+
+    dataManager.clicksData.append(*currentClDt);
+    dataManager.currentClickData = new ClickData();
+}
+
+
+void MouseController::appendMouseMove(QPoint pos) {
+
+    dataManager.currentClickData->track.append(pos);
+    dataManager.currentClickData->times.append(timer.elapsed());
+}
+
+void MouseController::takeIndexSelectedRows(QModelIndexList indexList) {
+    if (indexList.empty()) {
+        mouse_widget->selectedClickDataForDraw.clear();
+        mouse_widget->update();
+        return;
+    }
+
+    // Сортируем индексы в обратном порядке для корректного удаления
+    std::sort(indexList.begin(), indexList.end(), [](const QModelIndex &a, const QModelIndex &b) {
+        return a.row() > b.row();
+    });
+
+    mouse_widget->selectedClickDataForDraw.clear();
+    for (const QModelIndex &index : indexList) {
+        bool ok = false;
+        qsizetype clickindex = index.siblingAtColumn(0).data().toLongLong(&ok);
+        if (!ok) {
+            qDebug() << "SettingsController::removeSelectedRows fail take index from row:" << index.row();
+            continue;
+        }
+
+        for(auto& it : clicksData) {
+            if (it.getId() == clickindex) {
+                mouse_widget->selectedClickDataForDraw.append(&it);
+            }
+        }
+
+    }
+    mouse_widget->update();
+}
+
+
+void MouseController::handleKeyPressEvent(QKeyEvent *event) {
+
+    if (event->key() == Qt::Key_Z && (event->modifiers() & Qt::ControlModifier)) {
+        // Действия при нажатии Ctrl+Z
+        if (!clicksData.isEmpty() && mouse_widget->isActiveWindow()) {
+            clicksData.pop_back();
+            mouse_widget->update();
+            mouse_widget->moveresizeTargetButton();
+            emit buttonClick();
+        }
+    }
+}
+
+
+
+
+#include "Mouse/MouseWidget.h"
+
+#include <random>
+#include <QDockWidget>
+
+
+
+MouseWidget::MouseWidget(QWidget *parent)
+    : QWidget(parent) {
+
+    this->setMinimumSize(200, 200);
+
+    this->installEventFilter(this);// установка фильтра событий, обработка в maincontroller
+    setMouseTracking(true); // включение захвата движенией мыши
+
+    // Настройка окна
+    this->setWindowTitle("Полноэкранное окно с кнопкой");
+
+    // Создание и настройка кнопки
+    button = new QPushButton("click", this);
+    button->setStyleSheet(
+        "QPushButton {background-color: red; color: white;}"
+        "QPushButton:hover {background-color: blue;}"
+        "QPushButton:pressed {background-color: green;}"
+        );
+
+    connect(button, &QPushButton::clicked, this,
+            [this] () {
+                selectedClickDataForDraw.clear();
+    });
+
+     // Перемещение кнопки в случайное место
+    moveresizeTargetButton();
+
+    button->setVisible(true);
+    this->update();
+}
+
+MouseWidget::~MouseWidget() {
+    delete button;
+}
+
+// Функция для генерации случайного числа в диапазоне [min, max]
+int randomInRange(int min, int max) {
+    // Статические объекты инициализируются только один раз
+    static std::random_device rd; // Генератор случайных чисел (может использовать аппаратные источники энтропии)
+    static std::mt19937 gen(rd()); // Генератор на основе алгоритма Мерсенна Твистера
+    std::uniform_int_distribution<> distrib(min, max); // Равномерное распределение
+
+    return distrib(gen);
+}
+
+void MouseWidget::moveresizeTargetButton() {
+
+    // Получение размеров окна
+    int maxX = this->width() - button->width();
+    int maxY = this->height() - button->height();
+
+    // Генерация случайных размеров кнопки 10,20,30pxl
+    int a = randomInRange(1, 3) * 10;
+    button->resize(a, a);
+
+    // Генерация случайных координат в пределах окна
+    static double steps_size = 1;
+
+    if(steps_size < 0.1)
+        steps_size = 1;
+    else
+        steps_size -= 0.01;
+
+    int randomX = randomInRange(10, maxX - 10) * steps_size;
+    int randomY = randomInRange(10, maxY - 10) * steps_size;
+
+    // Перемещение кнопки в случайные координаты
+    button->move(randomX, randomY);
+
+}
+
+QRect MouseWidget::getButtonGeometry() const {
+    return button->geometry();
+}
+
+QPoint MouseWidget::getButtonPosition() const {
+    return button->pos();
+}
+
+
+
+
+
+bool MouseWidget::eventFilter(QObject *obj, QEvent *event) {
+    if (event->type() == QEvent::KeyPress) {
+        QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
+        //handleKeyPressEvent(keyEvent);
+        return true;
+    } else {
+        // стандартная обработка остальных событий
+        return QWidget::eventFilter(obj, event);
+    }
+}
+
+void MouseWidget::paintEvent(QPaintEvent *event) {
+    QPainter painter(this);
+
+    // Создание структуры для хранения настроек пера и соответствующих точек
+    struct PenPoints {
+        QPen pen;
+        QVector<QPoint> points;
+    };
+
+    QVector<PenPoints> penPoints;
+
+    if(selectedClickDataForDraw.empty()) {
+        if(dataManager.currentClickData->track.size() > 0)
+            penPoints.append({{Qt::black, 3}, dataManager.currentClickData->track});
+        if(clicksData.size() > 1)
+            penPoints.append({{Qt::darkGray, 2}, clicksData[clicksData.size() - 1].track});
+        if(clicksData.size() > 2)
+            penPoints.append({{Qt::gray, 1}, clicksData[clicksData.size() - 2].track});
+    } else {
+        QVector<QColor> colors = {Qt::black, Qt::red, Qt::green, Qt::blue, Qt::yellow, Qt::magenta, Qt::cyan};
+        int colorIndex = 0;  // Индекс для выбора цвета
+
+        for (const ClickData* row : selectedClickDataForDraw) {
+            QColor color = colors[colorIndex % colors.size()];  // Выбираем цвет по индексу
+            penPoints.append({{color, 3}, row->track});
+
+            colorIndex++;  // Увеличиваем индекс для следующего цвета
+        }
+    }
+
+    for (const auto& pp : penPoints) {
+        painter.setPen(pp.pen);
+        if (!pp.points.isEmpty()) {
+            painter.drawPoints(pp.points.constData(), pp.points.size());
+        }
+    }
+}
+
+void MouseWidget::mouseMoveEvent(QMouseEvent *event) {
+    QPoint p = event->pos();
+    update();
+    QWidget::mouseMoveEvent(event); // Вызов базового обработчика событий
+
+    emit mouseMoveSig(p);
+}
+
+
+
+
+#ifndef GENERATENEWMOUSETRACK_H
+#define GENERATENEWMOUSETRACK_H
+
+class GenerateNewMouseTrack
+{
+public:
+    GenerateNewMouseTrack();
+};
+
+#endif // GENERATENEWMOUSETRACK_H
+#include "GenerateNewMouseTrack.h"
+
+#include <QPointF>
+#include <QVector>
+#include <QRandomGenerator>
+#include <QtMath>
+
+GenerateNewMouseTrack::GenerateNewMouseTrack() {}
+
+
+// Структура для хранения точки с временной меткой
+struct MousePoint {
+    QPointF position;
+    qint64 time;
+};
+
+// Функция для нормализации трека
+void normalizeTrack(QVector<MousePoint>& track) {
+    QPointF startPoint = track.first().position;
+    for (auto& point : track) {
+        point.position -= startPoint;
+    }
+}
+
+// Функция для масштабирования трека
+void scaleTrack(QVector<MousePoint>& track, const QPointF& scaleFactors) {
+    for (auto& point : track) {
+        point.position.setX(point.position.x() * scaleFactors.x());
+        point.position.setY(point.position.y() * scaleFactors.y());
+    }
+}
+
+// Функция для поворота трека
+void rotateTrack(QVector<MousePoint>& track, double angle) {
+    double radians = qDegreesToRadians(angle);
+    double cosAngle = qCos(radians);
+    double sinAngle = qSin(radians);
+    for (auto& point : track) {
+        double x = point.position.x() * cosAngle - point.position.y() * sinAngle;
+        double y = point.position.x() * sinAngle + point.position.y() * cosAngle;
+        point.position.setX(x);
+        point.position.setY(y);
+    }
+}
+
+// Функция для сдвига трека
+void translateTrack(QVector<MousePoint>& track, const QPointF& translation) {
+    for (auto& point : track) {
+        point.position += translation;
+    }
+}
+
+// Функция для рандомизации траектории
+void randomizeTrajectory(QVector<MousePoint>& track, double maxOffset) {
+    for (auto& point : track) {
+        double offsetX = QRandomGenerator::global()->bounded(maxOffset);
+        double offsetY = QRandomGenerator::global()->bounded(maxOffset);
+        point.position += QPointF(offsetX, offsetY);
+    }
+}
+
+// Функция для рандомизации времени
+void randomizeTime(QVector<MousePoint>& track, qint64 maxTimeOffset) {
+    for (auto& point : track) {
+        qint64 timeOffset = QRandomGenerator::global()->bounded(-maxTimeOffset, maxTimeOffset);
+        point.time += timeOffset;
+    }
+}
+
+// Основная функция для генерации нового трека
+QVector<MousePoint> generateNewMouseTrack(const QVector<MousePoint>& originalTrack,
+                                          const QPointF& newStart,
+                                          const QPointF& newEnd) {
+    QVector<MousePoint> newTrack = originalTrack;
+
+    // Нормализация
+    normalizeTrack(newTrack);
+
+    // Вычисление масштабирования
+    QPointF originalDelta = newTrack.last().position;
+    QPointF newDelta = newEnd - newStart;
+    QPointF scaleFactors(newDelta.x() / originalDelta.x(),
+                         newDelta.y() / originalDelta.y());
+
+    // Масштабирование
+    scaleTrack(newTrack, scaleFactors);
+
+    // Поворот (если необходимо)
+    double angle = QRandomGenerator::global()->bounded(5.0); // Рандомный небольшой угол
+    rotateTrack(newTrack, angle);
+
+    // Рандомизация траектории
+    randomizeTrajectory(newTrack, 1.5);
+
+    // Сдвиг к новым координатам
+    translateTrack(newTrack, newStart);
+
+    // Рандомизация времени
+    randomizeTime(newTrack, 10);
+
+
+    return newTrack;
+}
+
+#ifndef SETTINGSCONTROLLER_H
+#define SETTINGSCONTROLLER_H
+
+#include <QAbstractTableModel>
+#include <QStringList>
+#include <QPoint>
+#include <QList>
+#include <QSortFilterProxyModel>
+#include "datamanager.h"
+
+
+class SettingsController : public QAbstractTableModel {
+    Q_OBJECT
+
+public:
+    explicit SettingsController(QObject *parent = nullptr);
+
+    // Переопределяем виртуальные методы QAbstractTableModel
+    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    int columnCount(const QModelIndex &parent = QModelIndex()) const override;
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
+    bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) override;
+    Qt::ItemFlags flags(const QModelIndex &index) const override;
+
+    void removeSelectedRows(QModelIndexList index); // Метод для удаления выделенных строк
+
+    QSortFilterProxyModel* proxyModel;
+public slots:
+    void insertRowTableModel();
+private:
+    DataManager& data_manager = DataManager::instance();
+    ClickDataList& clicksData = data_manager.clicksData;
+    QStringList headers = {
+        "Index",
+        "Button Size",
+        "Straight-Line\nPixels per Second",
+        "Straight Length",
+        "Straight Length/\nCurve Length",
+        "Curve Length",
+        "Click Position\nin Button",
+        "Click Position\nin Window",
+        "Duration",
+        "Average Point\nDelay"
+    };
+
+};
+
+
+#endif // SETTINGSCONTROLLER_H
+#ifndef SETTINGSMODEL_H
+#define SETTINGSMODEL_H
+
+
+
+#endif // SETTINGSMODEL_H
+#ifndef SETTINGSWIDGET_H
+#define SETTINGSWIDGET_H
+
+#include <QWidget>
+#include <QComboBox>
+#include <QPushButton>
+#include <QTableView>
+
+
+class SettingsWidget : public QWidget {
+    Q_OBJECT
+
+public:
+
+    explicit SettingsWidget(QWidget *parent = nullptr);
+
+    QTableView *trackTableView;
+
+public slots:
+
+    void scrollToBottom();
+
+signals:
+
+    void deleteRows(QModelIndexList selectedIndexes);
+    void updateTable();
+
+protected:
+
+    void keyPressEvent(QKeyEvent *event) override;
+
+};
+
+#endif // SETTINGSWIDGET_H
+
+#include "Selection/SettingsController.h"
+#include <QStandardItem>
+#include <cmath>
+
+
+SettingsController::SettingsController(QObject *parent)
+    : QAbstractTableModel(parent) {
+    proxyModel = new QSortFilterProxyModel(this);
+    proxyModel->setSourceModel(this);
+}
+
+int SettingsController::rowCount(const QModelIndex &parent) const {
+    Q_UNUSED(parent);
+    return clicksData.size(); // Количество строк соответствует количеству ClickData
+}
+
+
+int SettingsController::columnCount(const QModelIndex &parent) const {
+    Q_UNUSED(parent);
+    return headers.size(); // Количество столбцов
+}
+
+
+QVariant SettingsController::data(const QModelIndex &index, int role) const {
+    if (!index.isValid() || role != Qt::DisplayRole)
+        return QVariant();
+
+    const ClickData& click = data_manager.clicksData[index.row()];
+
+    switch (index.column()) {
+
+    // "Index"
+    case 0:
+        return click.getId();
+
+    // "Button Size"
+    case 1:
+        return click.buttonRect.width();
+
+    // "Straight-Line Pixels per Second"
+    case 2: {
+        if(click.track.empty())
+            return 0;
+        double straight_length = click.calculateDistance();
+        double duration = click.times.last() - click.times.first();
+        return duration > 0 ? straight_length / (duration / 1000): 0.0;
+    }
+
+    // "Straight Length"
+    case 3:
+        if(click.track.empty())
+            return 0;
+        return click.calculateDistance();
+
+    // "Straight Length/Curve Length"
+    case 4: {
+        if(click.track.empty())
+            return 0;
+        double straight_length = click.calculateDistance();
+        double curve_length = click.calculateCurveLength();
+        return curve_length > 0 ? straight_length / curve_length : 0.0;
+    }
+
+    // "Curve Length"
+    case 5:
+        return click.calculateCurveLength();
+
+    // "Click Position in Button"
+    case 6:
+        return QString("(%1, %2)").arg(click.clickPositionInButton.x()).arg(click.clickPositionInButton.y());
+
+    // "Click Position in Window"
+    case 7:
+        return QString("(%1, %2)").arg(click.globalClickPosition.x()).arg(click.globalClickPosition.y());
+
+    // "Duration"
+    case 8:
+        if(click.times.empty())
+            return 0;
+        return  click.times.last() - click.times.first();
+
+    // "Average Point Delay"
+    case 9:
+        if(click.times.empty())
+            return 0;
+        return click.times.isEmpty() ? 0 : (click.times.last() - click.times.first())
+                                               / double(click.times.size());
+    }
+
+    return QVariant();
+}
+
+
+QVariant SettingsController::headerData(int section, Qt::Orientation orientation, int role) const {
+    if (role != Qt::DisplayRole || section < 0 || section >= headers.size())
+        return QVariant();
+
+    if (orientation == Qt::Horizontal) {
+        return headers[section]; // Заголовки столбцов
+    } else {
+        return section + 1; // Нумерация строк
+    }
+}
+
+
+bool SettingsController::setData(const QModelIndex &index, const QVariant &value, int role) {
+    if (role != Qt::EditRole || !index.isValid())
+        return false;
+
+    // Реализация возможности редактирования данных, если необходимо
+
+    emit dataChanged(index, index, {role});
+    return true;
+}
+
+
+Qt::ItemFlags SettingsController::flags(const QModelIndex &index) const {
+    if (!index.isValid())
+        return Qt::NoItemFlags;
+
+    return Qt::ItemIsSelectable | Qt::ItemIsEnabled | Qt::ItemIsEditable;
+}
+
+
+void SettingsController::insertRowTableModel() {
+    int newRowPos = rowCount();
+
+    beginInsertRows(QModelIndex(), newRowPos, newRowPos);
+    endInsertRows();
+
+};
+
+
+void SettingsController::removeSelectedRows(QModelIndexList indexList) {
+    if (indexList.empty()) {
+        return;
+    }
+
+    // Сортируем индексы в обратном порядке для корректного удаления
+    std::sort(indexList.begin(), indexList.end(), [](const QModelIndex &a, const QModelIndex &b) {
+        return a.row() > b.row();
+    });
+
+    for (const QModelIndex &index : indexList) {
+        bool ok = false;
+        qsizetype clickindex = index.siblingAtColumn(0).data().toLongLong(&ok);
+        if (!ok) {
+            qDebug() << "SettingsController::removeSelectedRows fail take index from row:" << index.row();
+            continue;
+        }
+
+        auto it = clicksData.constBegin();
+        while (it != clicksData.end()) {
+            if (it->getId() == clickindex) {
+                beginRemoveRows(QModelIndex(), index.row(), index.row());
+                qDebug() << "SettingsController::removeSelectedRows delete element, index:" << it->getId();
+                it = clicksData.erase(it);
+                if(clicksData.empty()) {clicksData.append(ClickData());}
+                endRemoveRows();
+                break;
+            } else {
+                ++it;
+            }
+        }
+    }
+}
+
+
+
+#include "SettingsModel.h"
+
+#include "Selection/SettingsWidget.h"
+#include <QVBoxLayout>
+#include <QKeyEvent>
+#include <QStandardItem>
+
+SettingsWidget::SettingsWidget(QWidget *parent)
+    : QWidget(parent) {
+
+    QVBoxLayout *layout = new QVBoxLayout(this);
+
+    trackTableView = new QTableView();
+    trackTableView->setSortingEnabled(true);
+    trackTableView->setSelectionBehavior(QAbstractItemView::SelectRows);
+    trackTableView->setSelectionMode(QAbstractItemView::ExtendedSelection);
+
+    layout->addWidget(trackTableView);
+
+    setLayout(layout);
+
+}
+
+
+
+void SettingsWidget::scrollToBottom() {
+    if (trackTableView->model()->rowCount() > 0) {
+        trackTableView->scrollToBottom();
+    }
+}
+
+
+void SettingsWidget::keyPressEvent(QKeyEvent *event) {
+    if (event->key() == Qt::Key_Delete) {
+        QModelIndexList selectedIndexes = trackTableView->selectionModel()->selectedRows();
+        if (!selectedIndexes.isEmpty()) {
+            emit deleteRows(selectedIndexes);  // Отправляем сигнал для удаления строки
+        }
+    }
+}

@@ -6,12 +6,12 @@
 #include <QPainter>
 #include <QObject>
 
-#include "MainWindow.h"
+#include "Main/MainWindow.h"
 #include "DataManager.h"
-#include "MouseWidget.h"
-#include "MouseController.h"
-#include "SettingsWidget.h"
-#include "SettingsController.h"
+#include "Mouse/MouseWidget.h"
+#include "Mouse/MouseController.h"
+#include "Selection/SettingsWidget.h"
+#include "Selection/SettingsController.h"
 //#include "SettingsModel.h"
 
 

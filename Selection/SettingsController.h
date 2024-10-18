@@ -5,6 +5,7 @@
 #include <QStringList>
 #include <QPoint>
 #include <QList>
+#include <QSortFilterProxyModel>
 #include "datamanager.h"
 
 
@@ -24,20 +25,23 @@ public:
 
     void removeSelectedRows(QModelIndexList index); // Метод для удаления выделенных строк
 
+    QSortFilterProxyModel* proxyModel;
 public slots:
-    void ResetTableModel();
+    void insertRowTableModel();
 private:
     DataManager& data_manager = DataManager::instance();
+    ClickDataList& clicksData = data_manager.clicksData;
     QStringList headers = {
+        "Index",
         "Button Size",
-        "Straight Length/Time Ratio",
+        "Straight-Line\nPixels per Second",
         "Straight Length",
-        "Straight Length/Curve Length",
+        "Straight Length/\nCurve Length",
         "Curve Length",
-        "Click Position",
-        "Window Position",
+        "Click Position\nin Button",
+        "Click Position\nin Window",
         "Duration",
-        "Point Delay"
+        "Average Point\nDelay"
     };
 
 };

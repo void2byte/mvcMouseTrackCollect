@@ -11,15 +11,15 @@ struct ClickData {
 
     ClickData() : id(nextId()) {}
 
-    uint getId() const { return id; }
-
     QRect buttonRect{};        // Размеры и положение кнопки
-    QPoint clickPosition{};    // Координаты клика внутри кнопки
-    QPoint windowPosition{};   // Координаты клика внутри окна
+    QPoint clickPositionInButton{};    // Координаты клика внутри кнопки
+    QPoint globalClickPosition{};   // Координаты клика внутри окна
     qint64 clickTime{};     // Время клика
 
     QVector<QPoint> track{};
     QVector<qint64> times{};
+
+    uint getId() const { return id; }
 
     double calculateDistance(const QPoint& point1, const QPoint& point2) const;
     double calculateDistance() const;
@@ -28,12 +28,12 @@ struct ClickData {
     double calculateCurveLength() const;
 
 private:
-    uint id;
+    qsizetype id;
 
     static std::atomic<uint> counter;  // Счетчик для генерации уникальных идентификаторов
 
     static uint nextId() {
-        return ++counter;
+        return counter++;
     }
 };
 
@@ -53,14 +53,19 @@ public:
     DataManager(const DataManager&) = delete;
     void operator=(const DataManager&) = delete;
 
-    void saveDataToXml(const ClickDataList& clicksData,
+    void saveDataToXml(ClickDataList &clicksData,
                        const QString& fileName  = "MouseMoveData.xml");
 
-    ClickDataList loadDataFromXml(
+    bool loadDataFromXml(
         const QString& fileName = "MouseMoveData.xml");
 
     ClickDataList clicksData;
+    ClickData* currentClickData;
 
 };
+
+double calculateDistance(const QPoint &point1, const QPoint &point2);
+
+double calculateCurveLength(const QVector<QPoint> &track);
 
 #endif // DATAMANAGER_H

@@ -1,4 +1,4 @@
-#include "MouseWidget.h"
+#include "Mouse/MouseWidget.h"
 
 #include <random>
 #include <QDockWidget>
@@ -24,11 +24,13 @@ MouseWidget::MouseWidget(QWidget *parent)
         "QPushButton:pressed {background-color: green;}"
         );
 
-    connect(button, &QPushButton::clicked, this, &MouseWidget::moveresizeTargetButton);
+    connect(button, &QPushButton::clicked, this,
+            [this] () {
+                selectedClickDataForDraw.clear();
+    });
 
-    //connect(this, &MouseWidget::moveResiseButton, controller, &MainController::handleButtonClicked);
-
-    moveresizeTargetButton(); // Перемещение кнопки в случайное место
+     // Перемещение кнопки в случайное место
+    moveresizeTargetButton();
 
     button->setVisible(true);
     this->update();
@@ -49,8 +51,6 @@ int randomInRange(int min, int max) {
 }
 
 void MouseWidget::moveresizeTargetButton() {
-
-    emit moveResizeButton();
 
     // Получение размеров окна
     int maxX = this->width() - button->width();
@@ -111,15 +111,21 @@ void MouseWidget::paintEvent(QPaintEvent *event) {
     QVector<PenPoints> penPoints;
 
     if(selectedClickDataForDraw.empty()) {
-        if(clicksData.size() > 0)
-            penPoints.append({{Qt::black, 3}, clicksData[clicksData.size()-1].track});
+        if(dataManager.currentClickData->track.size() > 0)
+            penPoints.append({{Qt::black, 3}, dataManager.currentClickData->track});
         if(clicksData.size() > 1)
-            penPoints.append({{Qt::darkGray, 2}, clicksData[clicksData.size()-2].track});
+            penPoints.append({{Qt::darkGray, 2}, clicksData[clicksData.size() - 1].track});
         if(clicksData.size() > 2)
-            penPoints.append({{Qt::gray, 1}, clicksData[clicksData.size()-3].track});
+            penPoints.append({{Qt::gray, 1}, clicksData[clicksData.size() - 2].track});
     } else {
-        for(ClickData* row : selectedClickDataForDraw) {
-            //penPoints.append({{Qt::black, 3}, row->track});
+        QVector<QColor> colors = {Qt::black, Qt::red, Qt::green, Qt::blue, Qt::yellow, Qt::magenta, Qt::cyan};
+        int colorIndex = 0;  // Индекс для выбора цвета
+
+        for (const ClickData* row : selectedClickDataForDraw) {
+            QColor color = colors[colorIndex % colors.size()];  // Выбираем цвет по индексу
+            penPoints.append({{color, 3}, row->track});
+
+            colorIndex++;  // Увеличиваем индекс для следующего цвета
         }
     }
 
@@ -139,10 +145,6 @@ void MouseWidget::mouseMoveEvent(QMouseEvent *event) {
     emit mouseMoveSig(p);
 }
 
-void MouseWidget::drawSelectedTracks(QList<ClickData*> selectedClickData)
-{
-    selectedClickDataForDraw = selectedClickData;
-}
 
 
 

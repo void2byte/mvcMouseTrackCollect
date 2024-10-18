@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui serialport
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -10,25 +10,29 @@ CONFIG += c++17
 
 SOURCES += \
     DataManager.cpp \
-    MainController.cpp \
-    MainWindow.cpp \
-    MouseController.cpp \
-    MouseWidget.cpp \
-    SettingsController.cpp \
-    SettingsModel.cpp \
-    SettingsWidget.cpp \
+    InputEmulator/ArduinoCommand.cpp \
+    Main\MainController.cpp \
+    Main\MainWindow.cpp \
+    Mouse\MouseController.cpp \
+    Mouse\MouseWidget.cpp \
+    Result/GenerateNewMouseTrack.cpp \
+    Selection\SettingsController.cpp \
+    Selection\SettingsModel.cpp \
+    Selection\SettingsWidget.cpp \
     TransformaController.cpp \
     main.cpp
 
 HEADERS += \
     DataManager.h \
-    MainController.h \
-    MainWindow.h \
-    MouseController.h \
-    MouseWidget.h \
-    SettingsController.h \
-    SettingsModel.h \
-    SettingsWidget.h \
+    InputEmulator/ArduinoCommand.h \
+    Main\MainController.h \
+    Main\MainWindow.h \
+    Mouse\MouseController.h \
+    Mouse\MouseWidget.h \
+    Result/GenerateNewMouseTrack.h \
+    Selection\SettingsController.h \
+    Selection\SettingsModel.h \
+    Selection\SettingsWidget.h \
     TransformaController.h
 
 #TRANSLATIONS += \

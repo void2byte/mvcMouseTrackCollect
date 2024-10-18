@@ -5,9 +5,6 @@
 #include <QComboBox>
 #include <QPushButton>
 #include <QTableView>
-#include <QStandardItemModel>
-
-#include "DataManager.h"
 
 
 class SettingsWidget : public QWidget {
@@ -18,17 +15,15 @@ public:
     explicit SettingsWidget(QWidget *parent = nullptr);
 
     QTableView *trackTableView;
-    QStandardItemModel *tableModel;
+
+public slots:
+
+    void scrollToBottom();
 
 signals:
 
     void deleteRows(QModelIndexList selectedIndexes);
     void updateTable();
-    void selectionChanged(QList<ClickData*> selectedRows);
-
-private slots:
-
-    void onSelectionChanged();
 
 protected:
 
