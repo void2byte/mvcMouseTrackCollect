@@ -1,0 +1,31 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "C:/Qt/6.7.2/msvc2019_64/include/**",
+                "C:/Qt/6.7.2/msvc2019_64/include/QtWidgets",
+                "C:/Qt/6.7.2/msvc2019_64/include/QtCore",
+                "C:/Qt/6.7.2/msvc2019_64/include/QtGui",
+                "C:/Qt/6.7.2/msvc2019_64/include/QtSerialPort"
+            ],
+            "defines": [
+                "WIN32",
+                "UNICODE",
+                "_UNICODE",
+                "QT_CORE_LIB",
+                "QT_GUI_LIB",
+                "QT_WIDGETS_LIB",
+                "QT_SERIALPORT_LIB",
+                "DEBUG",
+                "QT_DEBUG"
+            ],
+            "compilerPath": "C:/Program Files/Microsoft Visual Studio/2022/Community/VC/Tools/MSVC/14.41.34120/bin/Hostx64/x64/cl.exe",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "windows-msvc-x64"
+        }
+    ],
+    "version": 4
+} 

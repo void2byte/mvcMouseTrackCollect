@@ -1,0 +1,3105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Data>
+    <Clicks>
+        <Click>
+            <ButtonRect x="23" y="96" width="30" height="30"/>
+            <ClickPosition x="9" y="20"/>
+            <WindowPosition x="32" y="116"/>
+            <ClickTime>50725</ClickTime>
+            <MouseMoves>
+                <MouseMove>
+                    <Position x="441" y="430"/>
+                    <MoveTime>12992</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="441" y="427"/>
+                    <MoveTime>13000</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="441" y="424"/>
+                    <MoveTime>13008</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="441" y="421"/>
+                    <MoveTime>13016</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="443" y="418"/>
+                    <MoveTime>13024</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="443" y="416"/>
+                    <MoveTime>13032</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="443" y="415"/>
+                    <MoveTime>13040</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="444" y="412"/>
+                    <MoveTime>13048</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="444" y="410"/>
+                    <MoveTime>13056</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="445" y="408"/>
+                    <MoveTime>13072</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="446" y="407"/>
+                    <MoveTime>13080</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="447" y="406"/>
+                    <MoveTime>13296</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="446" y="403"/>
+                    <MoveTime>46672</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="436" y="396"/>
+                    <MoveTime>46680</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="423" y="388"/>
+                    <MoveTime>46688</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="407" y="378"/>
+                    <MoveTime>46696</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="393" y="370"/>
+                    <MoveTime>46704</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="381" y="363"/>
+                    <MoveTime>46712</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="368" y="354"/>
+                    <MoveTime>46720</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="360" y="349"/>
+                    <MoveTime>46728</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="353" y="345"/>
+                    <MoveTime>46736</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="344" y="340"/>
+                    <MoveTime>46745</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="335" y="336"/>
+                    <MoveTime>46752</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="326" y="330"/>
+                    <MoveTime>46760</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="318" y="327"/>
+                    <MoveTime>46768</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="311" y="325"/>
+                    <MoveTime>46776</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="305" y="324"/>
+                    <MoveTime>46784</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="300" y="322"/>
+                    <MoveTime>46792</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="296" y="320"/>
+                    <MoveTime>46800</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="293" y="318"/>
+                    <MoveTime>46808</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="288" y="315"/>
+                    <MoveTime>46816</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="284" y="314"/>
+                    <MoveTime>46824</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="283" y="313"/>
+                    <MoveTime>46832</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="282" y="313"/>
+                    <MoveTime>46840</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="281" y="314"/>
+                    <MoveTime>46880</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="281" y="318"/>
+                    <MoveTime>46888</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="282" y="322"/>
+                    <MoveTime>46896</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="285" y="326"/>
+                    <MoveTime>46904</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="285" y="328"/>
+                    <MoveTime>46912</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="288" y="333"/>
+                    <MoveTime>46920</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="290" y="337"/>
+                    <MoveTime>46928</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="293" y="341"/>
+                    <MoveTime>46936</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="294" y="343"/>
+                    <MoveTime>46945</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="297" y="346"/>
+                    <MoveTime>46952</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="287" y="339"/>
+                    <MoveTime>49600</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="270" y="324"/>
+                    <MoveTime>49608</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="253" y="309"/>
+                    <MoveTime>49616</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="235" y="295"/>
+                    <MoveTime>49624</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="222" y="283"/>
+                    <MoveTime>49632</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="209" y="273"/>
+                    <MoveTime>49640</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="198" y="264"/>
+                    <MoveTime>49648</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="190" y="258"/>
+                    <MoveTime>49656</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="183" y="252"/>
+                    <MoveTime>49664</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="177" y="247"/>
+                    <MoveTime>49672</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="172" y="241"/>
+                    <MoveTime>49680</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="167" y="236"/>
+                    <MoveTime>49688</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="164" y="231"/>
+                    <MoveTime>49696</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="158" y="224"/>
+                    <MoveTime>49704</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="154" y="217"/>
+                    <MoveTime>49712</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="149" y="209"/>
+                    <MoveTime>49720</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="146" y="205"/>
+                    <MoveTime>49728</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="143" y="200"/>
+                    <MoveTime>49736</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="142" y="199"/>
+                    <MoveTime>49745</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="140" y="197"/>
+                    <MoveTime>49752</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="139" y="194"/>
+                    <MoveTime>49760</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="136" y="191"/>
+                    <MoveTime>49768</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="134" y="189"/>
+                    <MoveTime>49776</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="131" y="189"/>
+                    <MoveTime>49784</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="124" y="185"/>
+                    <MoveTime>49792</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="120" y="183"/>
+                    <MoveTime>49800</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="114" y="178"/>
+                    <MoveTime>49808</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="107" y="174"/>
+                    <MoveTime>49816</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="99" y="168"/>
+                    <MoveTime>49824</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="92" y="163"/>
+                    <MoveTime>49832</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="87" y="160"/>
+                    <MoveTime>49840</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="82" y="157"/>
+                    <MoveTime>49848</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="80" y="157"/>
+                    <MoveTime>49856</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="78" y="156"/>
+                    <MoveTime>49864</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="76" y="154"/>
+                    <MoveTime>49888</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="74" y="152"/>
+                    <MoveTime>49896</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="72" y="148"/>
+                    <MoveTime>49904</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="68" y="143"/>
+                    <MoveTime>49912</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="65" y="141"/>
+                    <MoveTime>49920</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="59" y="138"/>
+                    <MoveTime>49928</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="53" y="135"/>
+                    <MoveTime>49936</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="50" y="134"/>
+                    <MoveTime>49945</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="47" y="132"/>
+                    <MoveTime>49952</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="45" y="132"/>
+                    <MoveTime>50000</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="43" y="130"/>
+                    <MoveTime>50008</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="41" y="129"/>
+                    <MoveTime>50016</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="40" y="128"/>
+                    <MoveTime>50040</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="40" y="125"/>
+                    <MoveTime>50056</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="40" y="122"/>
+                    <MoveTime>50064</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="40" y="121"/>
+                    <MoveTime>50072</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="40" y="118"/>
+                    <MoveTime>50080</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="38" y="115"/>
+                    <MoveTime>50088</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="36" y="111"/>
+                    <MoveTime>50096</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="34" y="109"/>
+                    <MoveTime>50104</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="33" y="106"/>
+                    <MoveTime>50112</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="31" y="103"/>
+                    <MoveTime>50120</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="30" y="102"/>
+                    <MoveTime>50200</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="29" y="102"/>
+                    <MoveTime>50208</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="26" y="103"/>
+                    <MoveTime>50240</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="26" y="105"/>
+                    <MoveTime>50368</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="26" y="106"/>
+                    <MoveTime>50376</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="26" y="108"/>
+                    <MoveTime>50392</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="26" y="109"/>
+                    <MoveTime>50400</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="27" y="110"/>
+                    <MoveTime>50408</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="27" y="111"/>
+                    <MoveTime>50416</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="28" y="112"/>
+                    <MoveTime>50424</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="29" y="113"/>
+                    <MoveTime>50432</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="30" y="114"/>
+                    <MoveTime>50440</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="32" y="116"/>
+                    <MoveTime>50456</MoveTime>
+                </MouseMove>
+            </MouseMoves>
+        </Click>
+        <Click>
+            <ButtonRect x="73" y="495" width="10" height="10"/>
+            <ClickPosition x="8" y="4"/>
+            <WindowPosition x="81" y="499"/>
+            <ClickTime>2245</ClickTime>
+            <MouseMoves>
+                <MouseMove>
+                    <Position x="34" y="116"/>
+                    <MoveTime>36</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="36" y="116"/>
+                    <MoveTime>40</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="38" y="118"/>
+                    <MoveTime>44</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="39" y="118"/>
+                    <MoveTime>48</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="40" y="118"/>
+                    <MoveTime>56</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="43" y="118"/>
+                    <MoveTime>64</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="46" y="118"/>
+                    <MoveTime>72</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="50" y="118"/>
+                    <MoveTime>80</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="53" y="119"/>
+                    <MoveTime>88</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="57" y="121"/>
+                    <MoveTime>96</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="60" y="123"/>
+                    <MoveTime>104</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="64" y="127"/>
+                    <MoveTime>112</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="67" y="130"/>
+                    <MoveTime>120</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="69" y="135"/>
+                    <MoveTime>128</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="73" y="142"/>
+                    <MoveTime>136</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="75" y="148"/>
+                    <MoveTime>144</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="78" y="156"/>
+                    <MoveTime>152</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="80" y="162"/>
+                    <MoveTime>160</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="83" y="168"/>
+                    <MoveTime>168</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="83" y="169"/>
+                    <MoveTime>176</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="84" y="166"/>
+                    <MoveTime>384</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="85" y="163"/>
+                    <MoveTime>392</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="87" y="161"/>
+                    <MoveTime>400</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="89" y="158"/>
+                    <MoveTime>408</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="93" y="154"/>
+                    <MoveTime>417</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="96" y="150"/>
+                    <MoveTime>424</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="99" y="145"/>
+                    <MoveTime>432</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="102" y="140"/>
+                    <MoveTime>440</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="103" y="135"/>
+                    <MoveTime>448</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="105" y="131"/>
+                    <MoveTime>456</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="107" y="128"/>
+                    <MoveTime>464</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="109" y="124"/>
+                    <MoveTime>472</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="112" y="121"/>
+                    <MoveTime>480</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="116" y="118"/>
+                    <MoveTime>488</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="117" y="117"/>
+                    <MoveTime>496</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="118" y="117"/>
+                    <MoveTime>504</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="119" y="117"/>
+                    <MoveTime>512</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="121" y="117"/>
+                    <MoveTime>520</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="122" y="116"/>
+                    <MoveTime>528</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="123" y="115"/>
+                    <MoveTime>536</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="124" y="115"/>
+                    <MoveTime>544</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="125" y="115"/>
+                    <MoveTime>552</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="128" y="114"/>
+                    <MoveTime>576</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="130" y="114"/>
+                    <MoveTime>640</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="131" y="115"/>
+                    <MoveTime>648</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="133" y="116"/>
+                    <MoveTime>656</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="135" y="118"/>
+                    <MoveTime>664</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="137" y="119"/>
+                    <MoveTime>672</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="140" y="121"/>
+                    <MoveTime>680</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="143" y="125"/>
+                    <MoveTime>688</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="146" y="129"/>
+                    <MoveTime>696</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="149" y="135"/>
+                    <MoveTime>704</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="150" y="141"/>
+                    <MoveTime>712</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="153" y="147"/>
+                    <MoveTime>720</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="158" y="158"/>
+                    <MoveTime>728</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="159" y="167"/>
+                    <MoveTime>736</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="164" y="178"/>
+                    <MoveTime>744</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="165" y="187"/>
+                    <MoveTime>752</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="169" y="199"/>
+                    <MoveTime>760</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="171" y="210"/>
+                    <MoveTime>768</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="171" y="219"/>
+                    <MoveTime>776</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="171" y="228"/>
+                    <MoveTime>784</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="171" y="238"/>
+                    <MoveTime>792</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="167" y="249"/>
+                    <MoveTime>800</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="163" y="259"/>
+                    <MoveTime>808</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="160" y="271"/>
+                    <MoveTime>817</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="154" y="282"/>
+                    <MoveTime>824</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="148" y="293"/>
+                    <MoveTime>832</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="145" y="302"/>
+                    <MoveTime>840</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="139" y="315"/>
+                    <MoveTime>848</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="134" y="326"/>
+                    <MoveTime>856</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="131" y="337"/>
+                    <MoveTime>864</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="128" y="348"/>
+                    <MoveTime>872</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="127" y="357"/>
+                    <MoveTime>880</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="124" y="365"/>
+                    <MoveTime>888</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="122" y="373"/>
+                    <MoveTime>896</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="121" y="381"/>
+                    <MoveTime>904</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="119" y="390"/>
+                    <MoveTime>912</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="119" y="397"/>
+                    <MoveTime>920</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="116" y="404"/>
+                    <MoveTime>928</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="114" y="410"/>
+                    <MoveTime>936</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="112" y="417"/>
+                    <MoveTime>944</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="110" y="422"/>
+                    <MoveTime>952</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="107" y="427"/>
+                    <MoveTime>960</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="104" y="432"/>
+                    <MoveTime>968</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="101" y="438"/>
+                    <MoveTime>976</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="99" y="443"/>
+                    <MoveTime>984</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="97" y="448"/>
+                    <MoveTime>992</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="94" y="453"/>
+                    <MoveTime>1000</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="92" y="458"/>
+                    <MoveTime>1008</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="92" y="462"/>
+                    <MoveTime>1016</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="91" y="465"/>
+                    <MoveTime>1024</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="90" y="470"/>
+                    <MoveTime>1032</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="89" y="471"/>
+                    <MoveTime>1040</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="88" y="474"/>
+                    <MoveTime>1048</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="88" y="477"/>
+                    <MoveTime>1056</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="88" y="478"/>
+                    <MoveTime>1064</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="88" y="481"/>
+                    <MoveTime>1072</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="89" y="482"/>
+                    <MoveTime>1200</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="88" y="484"/>
+                    <MoveTime>1352</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="86" y="486"/>
+                    <MoveTime>1472</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="85" y="487"/>
+                    <MoveTime>1480</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="84" y="488"/>
+                    <MoveTime>1496</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="83" y="488"/>
+                    <MoveTime>1504</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="81" y="490"/>
+                    <MoveTime>1512</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="80" y="491"/>
+                    <MoveTime>1528</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="79" y="492"/>
+                    <MoveTime>1560</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="79" y="493"/>
+                    <MoveTime>1696</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="80" y="494"/>
+                    <MoveTime>1792</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="80" y="495"/>
+                    <MoveTime>1800</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="80" y="496"/>
+                    <MoveTime>1856</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="80" y="498"/>
+                    <MoveTime>1880</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="81" y="499"/>
+                    <MoveTime>1904</MoveTime>
+                </MouseMove>
+            </MouseMoves>
+        </Click>
+        <Click>
+            <ButtonRect x="412" y="101" width="20" height="20"/>
+            <ClickPosition x="10" y="7"/>
+            <WindowPosition x="422" y="108"/>
+            <ClickTime>1744</ClickTime>
+            <MouseMoves>
+                <MouseMove>
+                    <Position x="82" y="499"/>
+                    <MoveTime>43</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="83" y="499"/>
+                    <MoveTime>51</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="86" y="501"/>
+                    <MoveTime>59</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="88" y="502"/>
+                    <MoveTime>67</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="91" y="503"/>
+                    <MoveTime>75</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="93" y="505"/>
+                    <MoveTime>83</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="94" y="506"/>
+                    <MoveTime>91</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="95" y="507"/>
+                    <MoveTime>99</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="95" y="510"/>
+                    <MoveTime>107</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="96" y="512"/>
+                    <MoveTime>115</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="96" y="514"/>
+                    <MoveTime>123</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="98" y="516"/>
+                    <MoveTime>131</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="99" y="519"/>
+                    <MoveTime>139</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="99" y="522"/>
+                    <MoveTime>148</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="99" y="526"/>
+                    <MoveTime>155</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="99" y="531"/>
+                    <MoveTime>164</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="99" y="532"/>
+                    <MoveTime>171</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="99" y="535"/>
+                    <MoveTime>195</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="99" y="538"/>
+                    <MoveTime>203</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="99" y="541"/>
+                    <MoveTime>211</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="99" y="542"/>
+                    <MoveTime>219</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="101" y="544"/>
+                    <MoveTime>259</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="104" y="539"/>
+                    <MoveTime>291</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="110" y="532"/>
+                    <MoveTime>299</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="116" y="525"/>
+                    <MoveTime>307</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="123" y="518"/>
+                    <MoveTime>315</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="132" y="509"/>
+                    <MoveTime>323</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="140" y="500"/>
+                    <MoveTime>331</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="148" y="489"/>
+                    <MoveTime>339</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="159" y="476"/>
+                    <MoveTime>347</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="170" y="463"/>
+                    <MoveTime>355</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="181" y="447"/>
+                    <MoveTime>364</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="192" y="431"/>
+                    <MoveTime>371</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="204" y="415"/>
+                    <MoveTime>379</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="217" y="397"/>
+                    <MoveTime>387</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="228" y="384"/>
+                    <MoveTime>395</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="240" y="371"/>
+                    <MoveTime>403</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="256" y="357"/>
+                    <MoveTime>411</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="269" y="344"/>
+                    <MoveTime>419</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="279" y="329"/>
+                    <MoveTime>427</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="294" y="315"/>
+                    <MoveTime>435</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="306" y="302"/>
+                    <MoveTime>443</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="318" y="289"/>
+                    <MoveTime>451</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="330" y="277"/>
+                    <MoveTime>459</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="344" y="266"/>
+                    <MoveTime>467</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="354" y="257"/>
+                    <MoveTime>475</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="364" y="247"/>
+                    <MoveTime>483</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="372" y="238"/>
+                    <MoveTime>491</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="378" y="230"/>
+                    <MoveTime>499</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="383" y="224"/>
+                    <MoveTime>507</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="389" y="218"/>
+                    <MoveTime>515</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="393" y="211"/>
+                    <MoveTime>523</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="398" y="204"/>
+                    <MoveTime>531</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="401" y="200"/>
+                    <MoveTime>539</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="402" y="193"/>
+                    <MoveTime>548</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="404" y="188"/>
+                    <MoveTime>555</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="404" y="182"/>
+                    <MoveTime>564</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="405" y="177"/>
+                    <MoveTime>571</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="405" y="172"/>
+                    <MoveTime>579</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="405" y="167"/>
+                    <MoveTime>587</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="407" y="164"/>
+                    <MoveTime>595</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="407" y="161"/>
+                    <MoveTime>603</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="408" y="158"/>
+                    <MoveTime>611</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="410" y="155"/>
+                    <MoveTime>619</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="410" y="152"/>
+                    <MoveTime>627</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="411" y="149"/>
+                    <MoveTime>635</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="411" y="146"/>
+                    <MoveTime>643</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="411" y="145"/>
+                    <MoveTime>651</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="411" y="143"/>
+                    <MoveTime>659</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="411" y="142"/>
+                    <MoveTime>667</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="411" y="140"/>
+                    <MoveTime>675</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="411" y="139"/>
+                    <MoveTime>683</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="411" y="137"/>
+                    <MoveTime>699</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="411" y="136"/>
+                    <MoveTime>723</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="411" y="134"/>
+                    <MoveTime>748</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="412" y="132"/>
+                    <MoveTime>771</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="414" y="130"/>
+                    <MoveTime>779</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="415" y="129"/>
+                    <MoveTime>787</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="417" y="128"/>
+                    <MoveTime>795</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="419" y="126"/>
+                    <MoveTime>803</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="420" y="125"/>
+                    <MoveTime>811</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="422" y="123"/>
+                    <MoveTime>819</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="423" y="121"/>
+                    <MoveTime>827</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="424" y="120"/>
+                    <MoveTime>835</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="426" y="118"/>
+                    <MoveTime>843</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="429" y="115"/>
+                    <MoveTime>851</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="431" y="112"/>
+                    <MoveTime>859</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="434" y="110"/>
+                    <MoveTime>867</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="436" y="108"/>
+                    <MoveTime>875</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="440" y="105"/>
+                    <MoveTime>883</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="442" y="103"/>
+                    <MoveTime>891</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="444" y="102"/>
+                    <MoveTime>899</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="443" y="103"/>
+                    <MoveTime>1059</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="442" y="105"/>
+                    <MoveTime>1067</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="441" y="106"/>
+                    <MoveTime>1075</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="440" y="108"/>
+                    <MoveTime>1083</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="437" y="110"/>
+                    <MoveTime>1091</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="435" y="112"/>
+                    <MoveTime>1099</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="432" y="113"/>
+                    <MoveTime>1107</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="430" y="115"/>
+                    <MoveTime>1115</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="429" y="116"/>
+                    <MoveTime>1123</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="427" y="118"/>
+                    <MoveTime>1131</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="426" y="121"/>
+                    <MoveTime>1148</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="425" y="121"/>
+                    <MoveTime>1155</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="423" y="121"/>
+                    <MoveTime>1164</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="422" y="120"/>
+                    <MoveTime>1387</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="423" y="119"/>
+                    <MoveTime>1411</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="423" y="118"/>
+                    <MoveTime>1427</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="423" y="116"/>
+                    <MoveTime>1443</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="423" y="115"/>
+                    <MoveTime>1451</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="423" y="113"/>
+                    <MoveTime>1467</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="423" y="112"/>
+                    <MoveTime>1475</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="423" y="110"/>
+                    <MoveTime>1499</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="423" y="109"/>
+                    <MoveTime>1507</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="422" y="108"/>
+                    <MoveTime>1523</MoveTime>
+                </MouseMove>
+            </MouseMoves>
+        </Click>
+        <Click>
+            <ButtonRect x="282" y="212" width="30" height="30"/>
+            <ClickPosition x="17" y="17"/>
+            <WindowPosition x="299" y="229"/>
+            <ClickTime>913</ClickTime>
+            <MouseMoves>
+                <MouseMove>
+                    <Position x="423" y="109"/>
+                    <MoveTime>35</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="423" y="111"/>
+                    <MoveTime>51</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="423" y="114"/>
+                    <MoveTime>59</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="423" y="116"/>
+                    <MoveTime>67</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="423" y="118"/>
+                    <MoveTime>75</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="424" y="122"/>
+                    <MoveTime>83</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="427" y="125"/>
+                    <MoveTime>91</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="431" y="128"/>
+                    <MoveTime>99</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="434" y="132"/>
+                    <MoveTime>107</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="434" y="134"/>
+                    <MoveTime>115</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="433" y="133"/>
+                    <MoveTime>243</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="432" y="132"/>
+                    <MoveTime>251</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="431" y="131"/>
+                    <MoveTime>259</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="431" y="130"/>
+                    <MoveTime>267</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="429" y="129"/>
+                    <MoveTime>275</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="426" y="127"/>
+                    <MoveTime>283</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="423" y="126"/>
+                    <MoveTime>291</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="417" y="126"/>
+                    <MoveTime>299</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="411" y="126"/>
+                    <MoveTime>307</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="407" y="126"/>
+                    <MoveTime>315</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="402" y="126"/>
+                    <MoveTime>323</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="398" y="126"/>
+                    <MoveTime>331</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="393" y="126"/>
+                    <MoveTime>339</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="389" y="128"/>
+                    <MoveTime>347</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="384" y="131"/>
+                    <MoveTime>355</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="378" y="136"/>
+                    <MoveTime>363</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="373" y="141"/>
+                    <MoveTime>371</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="367" y="146"/>
+                    <MoveTime>379</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="363" y="151"/>
+                    <MoveTime>387</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="358" y="154"/>
+                    <MoveTime>395</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="354" y="158"/>
+                    <MoveTime>403</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="347" y="164"/>
+                    <MoveTime>411</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="343" y="168"/>
+                    <MoveTime>419</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="338" y="173"/>
+                    <MoveTime>427</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="335" y="176"/>
+                    <MoveTime>435</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="330" y="181"/>
+                    <MoveTime>443</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="327" y="185"/>
+                    <MoveTime>451</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="325" y="189"/>
+                    <MoveTime>459</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="323" y="193"/>
+                    <MoveTime>467</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="322" y="196"/>
+                    <MoveTime>475</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="320" y="199"/>
+                    <MoveTime>483</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="319" y="201"/>
+                    <MoveTime>491</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="317" y="203"/>
+                    <MoveTime>499</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="317" y="204"/>
+                    <MoveTime>507</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="316" y="205"/>
+                    <MoveTime>515</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="314" y="207"/>
+                    <MoveTime>523</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="313" y="209"/>
+                    <MoveTime>531</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="312" y="211"/>
+                    <MoveTime>539</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="310" y="213"/>
+                    <MoveTime>547</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="308" y="215"/>
+                    <MoveTime>555</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="307" y="216"/>
+                    <MoveTime>563</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="306" y="218"/>
+                    <MoveTime>571</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="305" y="219"/>
+                    <MoveTime>579</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="304" y="221"/>
+                    <MoveTime>587</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="304" y="222"/>
+                    <MoveTime>595</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="304" y="223"/>
+                    <MoveTime>603</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="304" y="225"/>
+                    <MoveTime>611</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="304" y="226"/>
+                    <MoveTime>619</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="304" y="228"/>
+                    <MoveTime>627</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="304" y="229"/>
+                    <MoveTime>643</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="303" y="230"/>
+                    <MoveTime>715</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="302" y="230"/>
+                    <MoveTime>779</MoveTime>
+                </MouseMove>
+            </MouseMoves>
+        </Click>
+        <Click>
+            <ButtonRect x="431" y="276" width="20" height="20"/>
+            <ClickPosition x="17" y="3"/>
+            <WindowPosition x="448" y="279"/>
+            <ClickTime>1233</ClickTime>
+            <MouseMoves>
+                <MouseMove>
+                    <Position x="296" y="228"/>
+                    <MoveTime>22</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="295" y="229"/>
+                    <MoveTime>28</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="295" y="231"/>
+                    <MoveTime>34</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="297" y="234"/>
+                    <MoveTime>42</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="299" y="237"/>
+                    <MoveTime>50</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="301" y="241"/>
+                    <MoveTime>58</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="303" y="243"/>
+                    <MoveTime>66</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="307" y="247"/>
+                    <MoveTime>74</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="309" y="248"/>
+                    <MoveTime>82</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="312" y="251"/>
+                    <MoveTime>90</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="312" y="252"/>
+                    <MoveTime>98</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="312" y="253"/>
+                    <MoveTime>106</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="311" y="250"/>
+                    <MoveTime>202</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="310" y="249"/>
+                    <MoveTime>210</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="310" y="248"/>
+                    <MoveTime>218</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="310" y="247"/>
+                    <MoveTime>226</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="310" y="244"/>
+                    <MoveTime>234</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="311" y="243"/>
+                    <MoveTime>282</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="313" y="243"/>
+                    <MoveTime>290</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="314" y="244"/>
+                    <MoveTime>298</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="317" y="245"/>
+                    <MoveTime>306</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="321" y="247"/>
+                    <MoveTime>314</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="323" y="248"/>
+                    <MoveTime>322</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="327" y="250"/>
+                    <MoveTime>330</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="332" y="251"/>
+                    <MoveTime>338</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="338" y="254"/>
+                    <MoveTime>346</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="346" y="256"/>
+                    <MoveTime>354</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="353" y="256"/>
+                    <MoveTime>362</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="359" y="256"/>
+                    <MoveTime>370</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="366" y="257"/>
+                    <MoveTime>378</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="374" y="259"/>
+                    <MoveTime>386</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="381" y="260"/>
+                    <MoveTime>394</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="389" y="260"/>
+                    <MoveTime>402</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="397" y="262"/>
+                    <MoveTime>410</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="403" y="263"/>
+                    <MoveTime>418</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="407" y="263"/>
+                    <MoveTime>426</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="412" y="263"/>
+                    <MoveTime>434</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="415" y="265"/>
+                    <MoveTime>442</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="419" y="266"/>
+                    <MoveTime>450</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="424" y="269"/>
+                    <MoveTime>458</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="428" y="271"/>
+                    <MoveTime>466</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="435" y="274"/>
+                    <MoveTime>474</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="439" y="275"/>
+                    <MoveTime>482</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="445" y="278"/>
+                    <MoveTime>490</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="450" y="280"/>
+                    <MoveTime>498</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="456" y="283"/>
+                    <MoveTime>506</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="460" y="284"/>
+                    <MoveTime>514</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="463" y="286"/>
+                    <MoveTime>522</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="466" y="287"/>
+                    <MoveTime>530</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="468" y="288"/>
+                    <MoveTime>538</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="468" y="289"/>
+                    <MoveTime>570</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="468" y="291"/>
+                    <MoveTime>578</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="468" y="292"/>
+                    <MoveTime>586</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="468" y="294"/>
+                    <MoveTime>594</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="468" y="295"/>
+                    <MoveTime>602</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="468" y="297"/>
+                    <MoveTime>610</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="467" y="299"/>
+                    <MoveTime>634</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="465" y="299"/>
+                    <MoveTime>722</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="464" y="299"/>
+                    <MoveTime>730</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="463" y="298"/>
+                    <MoveTime>746</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="462" y="297"/>
+                    <MoveTime>762</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="461" y="296"/>
+                    <MoveTime>770</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="460" y="294"/>
+                    <MoveTime>778</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="459" y="292"/>
+                    <MoveTime>794</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="458" y="291"/>
+                    <MoveTime>810</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="457" y="290"/>
+                    <MoveTime>826</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="457" y="289"/>
+                    <MoveTime>842</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="456" y="288"/>
+                    <MoveTime>850</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="454" y="286"/>
+                    <MoveTime>874</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="452" y="285"/>
+                    <MoveTime>882</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="450" y="285"/>
+                    <MoveTime>890</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="449" y="285"/>
+                    <MoveTime>898</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="448" y="284"/>
+                    <MoveTime>914</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="447" y="283"/>
+                    <MoveTime>962</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="446" y="282"/>
+                    <MoveTime>978</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="444" y="282"/>
+                    <MoveTime>994</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="443" y="281"/>
+                    <MoveTime>1002</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="442" y="280"/>
+                    <MoveTime>1042</MoveTime>
+                </MouseMove>
+            </MouseMoves>
+        </Click>
+        <Click>
+            <ButtonRect x="313" y="367" width="20" height="20"/>
+            <ClickPosition x="12" y="8"/>
+            <WindowPosition x="325" y="375"/>
+            <ClickTime>882</ClickTime>
+            <MouseMoves>
+                <MouseMove>
+                    <Position x="452" y="279"/>
+                    <MoveTime>44</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="456" y="280"/>
+                    <MoveTime>51</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="456" y="282"/>
+                    <MoveTime>56</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="456" y="283"/>
+                    <MoveTime>63</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="456" y="285"/>
+                    <MoveTime>78</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="456" y="286"/>
+                    <MoveTime>86</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="456" y="288"/>
+                    <MoveTime>102</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="454" y="290"/>
+                    <MoveTime>118</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="453" y="290"/>
+                    <MoveTime>126</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="451" y="292"/>
+                    <MoveTime>134</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="450" y="293"/>
+                    <MoveTime>142</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="448" y="294"/>
+                    <MoveTime>150</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="445" y="296"/>
+                    <MoveTime>158</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="443" y="297"/>
+                    <MoveTime>166</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="441" y="299"/>
+                    <MoveTime>174</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="438" y="301"/>
+                    <MoveTime>182</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="435" y="302"/>
+                    <MoveTime>190</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="432" y="304"/>
+                    <MoveTime>198</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="429" y="305"/>
+                    <MoveTime>206</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="425" y="306"/>
+                    <MoveTime>214</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="422" y="308"/>
+                    <MoveTime>222</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="420" y="310"/>
+                    <MoveTime>230</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="417" y="311"/>
+                    <MoveTime>238</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="413" y="314"/>
+                    <MoveTime>246</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="411" y="316"/>
+                    <MoveTime>254</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="410" y="317"/>
+                    <MoveTime>262</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="408" y="319"/>
+                    <MoveTime>270</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="405" y="322"/>
+                    <MoveTime>278</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="402" y="323"/>
+                    <MoveTime>286</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="400" y="325"/>
+                    <MoveTime>294</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="398" y="325"/>
+                    <MoveTime>302</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="395" y="326"/>
+                    <MoveTime>310</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="392" y="328"/>
+                    <MoveTime>318</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="389" y="329"/>
+                    <MoveTime>326</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="385" y="332"/>
+                    <MoveTime>334</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="382" y="333"/>
+                    <MoveTime>342</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="380" y="335"/>
+                    <MoveTime>350</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="375" y="338"/>
+                    <MoveTime>358</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="371" y="340"/>
+                    <MoveTime>366</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="366" y="343"/>
+                    <MoveTime>374</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="362" y="344"/>
+                    <MoveTime>382</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="357" y="347"/>
+                    <MoveTime>390</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="352" y="349"/>
+                    <MoveTime>398</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="349" y="350"/>
+                    <MoveTime>406</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="347" y="350"/>
+                    <MoveTime>414</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="343" y="353"/>
+                    <MoveTime>422</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="342" y="353"/>
+                    <MoveTime>430</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="340" y="355"/>
+                    <MoveTime>438</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="339" y="356"/>
+                    <MoveTime>454</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="338" y="357"/>
+                    <MoveTime>462</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="337" y="358"/>
+                    <MoveTime>470</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="337" y="360"/>
+                    <MoveTime>486</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="337" y="363"/>
+                    <MoveTime>494</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="335" y="365"/>
+                    <MoveTime>502</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="333" y="367"/>
+                    <MoveTime>510</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="332" y="368"/>
+                    <MoveTime>518</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="331" y="369"/>
+                    <MoveTime>526</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="329" y="371"/>
+                    <MoveTime>534</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="327" y="371"/>
+                    <MoveTime>558</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="325" y="373"/>
+                    <MoveTime>574</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="325" y="375"/>
+                    <MoveTime>598</MoveTime>
+                </MouseMove>
+            </MouseMoves>
+        </Click>
+        <Click>
+            <ButtonRect x="73" y="83" width="10" height="10"/>
+            <ClickPosition x="7" y="6"/>
+            <WindowPosition x="80" y="89"/>
+            <ClickTime>1710</ClickTime>
+            <MouseMoves>
+                <MouseMove>
+                    <Position x="324" y="375"/>
+                    <MoveTime>37</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="323" y="375"/>
+                    <MoveTime>65</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="322" y="374"/>
+                    <MoveTime>73</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="321" y="373"/>
+                    <MoveTime>89</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="320" y="373"/>
+                    <MoveTime>97</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="317" y="372"/>
+                    <MoveTime>105</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="312" y="372"/>
+                    <MoveTime>121</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="309" y="372"/>
+                    <MoveTime>129</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="306" y="370"/>
+                    <MoveTime>137</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="303" y="370"/>
+                    <MoveTime>145</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="302" y="370"/>
+                    <MoveTime>154</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="299" y="369"/>
+                    <MoveTime>161</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="298" y="368"/>
+                    <MoveTime>177</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="296" y="366"/>
+                    <MoveTime>185</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="294" y="364"/>
+                    <MoveTime>193</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="290" y="363"/>
+                    <MoveTime>201</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="288" y="363"/>
+                    <MoveTime>209</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="284" y="361"/>
+                    <MoveTime>217</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="281" y="361"/>
+                    <MoveTime>225</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="278" y="361"/>
+                    <MoveTime>233</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="275" y="361"/>
+                    <MoveTime>241</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="273" y="361"/>
+                    <MoveTime>249</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="272" y="361"/>
+                    <MoveTime>257</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="270" y="361"/>
+                    <MoveTime>265</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="269" y="361"/>
+                    <MoveTime>273</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="268" y="361"/>
+                    <MoveTime>281</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="266" y="360"/>
+                    <MoveTime>289</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="264" y="358"/>
+                    <MoveTime>297</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="261" y="355"/>
+                    <MoveTime>305</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="259" y="353"/>
+                    <MoveTime>313</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="254" y="350"/>
+                    <MoveTime>321</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="249" y="343"/>
+                    <MoveTime>329</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="242" y="339"/>
+                    <MoveTime>337</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="235" y="335"/>
+                    <MoveTime>345</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="227" y="330"/>
+                    <MoveTime>354</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="222" y="327"/>
+                    <MoveTime>361</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="218" y="321"/>
+                    <MoveTime>369</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="212" y="315"/>
+                    <MoveTime>377</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="208" y="309"/>
+                    <MoveTime>385</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="205" y="305"/>
+                    <MoveTime>393</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="202" y="301"/>
+                    <MoveTime>401</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="198" y="295"/>
+                    <MoveTime>409</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="194" y="290"/>
+                    <MoveTime>417</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="190" y="284"/>
+                    <MoveTime>425</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="186" y="278"/>
+                    <MoveTime>433</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="181" y="272"/>
+                    <MoveTime>441</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="173" y="264"/>
+                    <MoveTime>449</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="167" y="257"/>
+                    <MoveTime>457</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="162" y="249"/>
+                    <MoveTime>465</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="157" y="241"/>
+                    <MoveTime>473</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="154" y="233"/>
+                    <MoveTime>481</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="151" y="224"/>
+                    <MoveTime>489</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="149" y="217"/>
+                    <MoveTime>497</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="148" y="210"/>
+                    <MoveTime>505</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="146" y="202"/>
+                    <MoveTime>513</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="145" y="195"/>
+                    <MoveTime>521</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="143" y="188"/>
+                    <MoveTime>529</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="142" y="181"/>
+                    <MoveTime>537</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="139" y="175"/>
+                    <MoveTime>545</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="137" y="167"/>
+                    <MoveTime>554</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="136" y="163"/>
+                    <MoveTime>561</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="135" y="157"/>
+                    <MoveTime>569</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="134" y="154"/>
+                    <MoveTime>577</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="133" y="150"/>
+                    <MoveTime>585</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="133" y="148"/>
+                    <MoveTime>593</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="131" y="146"/>
+                    <MoveTime>601</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="130" y="144"/>
+                    <MoveTime>609</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="128" y="141"/>
+                    <MoveTime>617</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="127" y="140"/>
+                    <MoveTime>625</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="125" y="138"/>
+                    <MoveTime>633</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="122" y="135"/>
+                    <MoveTime>641</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="119" y="132"/>
+                    <MoveTime>649</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="116" y="131"/>
+                    <MoveTime>657</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="113" y="129"/>
+                    <MoveTime>665</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="111" y="127"/>
+                    <MoveTime>673</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="108" y="126"/>
+                    <MoveTime>681</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="106" y="124"/>
+                    <MoveTime>689</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="104" y="122"/>
+                    <MoveTime>697</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="103" y="121"/>
+                    <MoveTime>705</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="103" y="119"/>
+                    <MoveTime>729</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="103" y="118"/>
+                    <MoveTime>738</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="100" y="114"/>
+                    <MoveTime>745</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="98" y="111"/>
+                    <MoveTime>754</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="97" y="109"/>
+                    <MoveTime>761</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="96" y="108"/>
+                    <MoveTime>769</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="94" y="106"/>
+                    <MoveTime>777</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="93" y="105"/>
+                    <MoveTime>785</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="91" y="103"/>
+                    <MoveTime>793</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="91" y="101"/>
+                    <MoveTime>817</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="91" y="100"/>
+                    <MoveTime>833</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="91" y="97"/>
+                    <MoveTime>841</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="91" y="95"/>
+                    <MoveTime>849</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="90" y="93"/>
+                    <MoveTime>857</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="89" y="92"/>
+                    <MoveTime>865</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="89" y="91"/>
+                    <MoveTime>873</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="88" y="89"/>
+                    <MoveTime>881</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="88" y="88"/>
+                    <MoveTime>897</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="88" y="86"/>
+                    <MoveTime>913</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="86" y="84"/>
+                    <MoveTime>945</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="86" y="83"/>
+                    <MoveTime>985</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="85" y="82"/>
+                    <MoveTime>1177</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="83" y="85"/>
+                    <MoveTime>1281</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="82" y="87"/>
+                    <MoveTime>1321</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="80" y="89"/>
+                    <MoveTime>1377</MoveTime>
+                </MouseMove>
+            </MouseMoves>
+        </Click>
+        <Click>
+            <ButtonRect x="218" y="436" width="10" height="10"/>
+            <ClickPosition x="7" y="5"/>
+            <WindowPosition x="225" y="441"/>
+            <ClickTime>2251</ClickTime>
+            <MouseMoves>
+                <MouseMove>
+                    <Position x="83" y="89"/>
+                    <MoveTime>52</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="85" y="91"/>
+                    <MoveTime>58</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="86" y="92"/>
+                    <MoveTime>63</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="88" y="94"/>
+                    <MoveTime>78</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="89" y="95"/>
+                    <MoveTime>86</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="90" y="97"/>
+                    <MoveTime>94</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="90" y="100"/>
+                    <MoveTime>102</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="91" y="106"/>
+                    <MoveTime>110</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="93" y="109"/>
+                    <MoveTime>118</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="93" y="111"/>
+                    <MoveTime>126</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="96" y="115"/>
+                    <MoveTime>134</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="98" y="119"/>
+                    <MoveTime>142</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="99" y="122"/>
+                    <MoveTime>150</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="101" y="126"/>
+                    <MoveTime>158</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="102" y="130"/>
+                    <MoveTime>166</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="105" y="133"/>
+                    <MoveTime>174</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="107" y="137"/>
+                    <MoveTime>182</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="111" y="139"/>
+                    <MoveTime>190</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="113" y="140"/>
+                    <MoveTime>198</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="117" y="142"/>
+                    <MoveTime>206</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="119" y="143"/>
+                    <MoveTime>214</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="123" y="144"/>
+                    <MoveTime>222</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="124" y="145"/>
+                    <MoveTime>230</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="125" y="146"/>
+                    <MoveTime>238</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="128" y="147"/>
+                    <MoveTime>246</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="129" y="148"/>
+                    <MoveTime>254</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="131" y="149"/>
+                    <MoveTime>262</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="134" y="151"/>
+                    <MoveTime>270</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="138" y="152"/>
+                    <MoveTime>278</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="142" y="154"/>
+                    <MoveTime>286</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="144" y="155"/>
+                    <MoveTime>294</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="147" y="156"/>
+                    <MoveTime>302</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="149" y="158"/>
+                    <MoveTime>310</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="156" y="163"/>
+                    <MoveTime>318</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="159" y="166"/>
+                    <MoveTime>326</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="165" y="171"/>
+                    <MoveTime>334</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="170" y="177"/>
+                    <MoveTime>342</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="176" y="184"/>
+                    <MoveTime>350</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="182" y="192"/>
+                    <MoveTime>358</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="188" y="201"/>
+                    <MoveTime>366</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="194" y="211"/>
+                    <MoveTime>374</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="198" y="221"/>
+                    <MoveTime>382</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="201" y="231"/>
+                    <MoveTime>390</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="204" y="240"/>
+                    <MoveTime>398</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="206" y="250"/>
+                    <MoveTime>406</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="206" y="259"/>
+                    <MoveTime>414</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="206" y="268"/>
+                    <MoveTime>422</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="206" y="276"/>
+                    <MoveTime>430</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="207" y="280"/>
+                    <MoveTime>438</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="208" y="284"/>
+                    <MoveTime>446</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="209" y="286"/>
+                    <MoveTime>454</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="209" y="291"/>
+                    <MoveTime>462</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="209" y="294"/>
+                    <MoveTime>470</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="210" y="298"/>
+                    <MoveTime>478</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="210" y="303"/>
+                    <MoveTime>486</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="211" y="307"/>
+                    <MoveTime>494</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="212" y="312"/>
+                    <MoveTime>502</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="213" y="315"/>
+                    <MoveTime>510</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="213" y="318"/>
+                    <MoveTime>518</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="213" y="321"/>
+                    <MoveTime>526</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="215" y="324"/>
+                    <MoveTime>534</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="215" y="327"/>
+                    <MoveTime>542</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="216" y="330"/>
+                    <MoveTime>550</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="216" y="333"/>
+                    <MoveTime>558</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="216" y="337"/>
+                    <MoveTime>566</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="218" y="341"/>
+                    <MoveTime>574</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="218" y="345"/>
+                    <MoveTime>582</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="219" y="348"/>
+                    <MoveTime>590</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="221" y="351"/>
+                    <MoveTime>598</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="222" y="354"/>
+                    <MoveTime>606</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="223" y="356"/>
+                    <MoveTime>614</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="224" y="358"/>
+                    <MoveTime>622</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="225" y="361"/>
+                    <MoveTime>630</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="227" y="363"/>
+                    <MoveTime>638</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="227" y="366"/>
+                    <MoveTime>646</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="228" y="369"/>
+                    <MoveTime>654</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="228" y="372"/>
+                    <MoveTime>662</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="230" y="375"/>
+                    <MoveTime>670</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="231" y="379"/>
+                    <MoveTime>678</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="233" y="384"/>
+                    <MoveTime>686</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="234" y="388"/>
+                    <MoveTime>694</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="236" y="392"/>
+                    <MoveTime>702</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="239" y="395"/>
+                    <MoveTime>710</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="240" y="398"/>
+                    <MoveTime>718</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="242" y="401"/>
+                    <MoveTime>726</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="242" y="402"/>
+                    <MoveTime>734</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="242" y="403"/>
+                    <MoveTime>742</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="243" y="406"/>
+                    <MoveTime>758</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="243" y="408"/>
+                    <MoveTime>766</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="243" y="409"/>
+                    <MoveTime>774</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="243" y="411"/>
+                    <MoveTime>782</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="243" y="412"/>
+                    <MoveTime>790</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="243" y="414"/>
+                    <MoveTime>806</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="243" y="415"/>
+                    <MoveTime>814</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="243" y="417"/>
+                    <MoveTime>846</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="243" y="418"/>
+                    <MoveTime>854</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="242" y="420"/>
+                    <MoveTime>862</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="241" y="421"/>
+                    <MoveTime>926</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="239" y="422"/>
+                    <MoveTime>934</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="238" y="423"/>
+                    <MoveTime>950</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="236" y="425"/>
+                    <MoveTime>958</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="235" y="426"/>
+                    <MoveTime>974</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="234" y="427"/>
+                    <MoveTime>982</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="233" y="428"/>
+                    <MoveTime>990</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="231" y="430"/>
+                    <MoveTime>1006</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="230" y="431"/>
+                    <MoveTime>1022</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="229" y="432"/>
+                    <MoveTime>1030</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="229" y="433"/>
+                    <MoveTime>1062</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="229" y="435"/>
+                    <MoveTime>1086</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="228" y="437"/>
+                    <MoveTime>1118</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="227" y="438"/>
+                    <MoveTime>1798</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="226" y="440"/>
+                    <MoveTime>1862</MoveTime>
+                </MouseMove>
+                <MouseMove>
+                    <Position x="224" y="442"/>
+                    <MoveTime>1950</MoveTime>
+                </MouseMove>
+            </MouseMoves>
+        </Click>
+    </Clicks>
+</Data>

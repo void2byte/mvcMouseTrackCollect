@@ -29,7 +29,7 @@
 
 struct CommandList;
 
-#pragma pack(push, 1)
+#pragma pack(push, 1) // Отключаем выравнивание для упрощения передачи
 struct CommandData {
     uint8_t flag;      // Флаг команды
     int16_t x;          // Данные для перемещения или скролла

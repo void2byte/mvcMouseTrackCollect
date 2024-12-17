@@ -1,0 +1,49 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "qmake",
+            "type": "shell",
+            "command": "qmake",
+            "args": [
+                "${workspaceFolder}/mvcMouseTrackCollect.pro",
+                "-spec",
+                "win32-g++",
+                "CONFIG+=debug"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/debug"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "build",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "dependsOn": ["qmake"],
+            "windows": {
+                "command": "mingw32-make",
+                "args": []
+            },
+            "options": {
+                "cwd": "${workspaceFolder}/debug"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "clean",
+            "type": "shell",
+            "command": "mingw32-make",
+            "args": ["clean"],
+            "options": {
+                "cwd": "${workspaceFolder}/debug"
+            },
+            "problemMatcher": []
+        }
+    ]
+}

@@ -1,0 +1,23 @@
+{
+    "configurations": [
+        {
+            "name": "x64-Debug",
+            "generator": "MinGW Makefiles",
+            "configurationType": "Debug",
+            "buildRoot": "${projectDir}\\build",
+            "installRoot": "${projectDir}\\install",
+            "cmakeCommandArgs": "",
+            "buildCommandArgs": "",
+            "ctestCommandArgs": "",
+            "inheritEnvironments": [ "mingw_64" ],
+            "environments": [
+                {
+                    "MINGW64_ROOT": "C:/Qt/Tools/mingw1310_64",
+                    "PATH": "${env.MINGW64_ROOT}/bin;${env.PATH}",
+                    "CMAKE_C_COMPILER": "${env.MINGW64_ROOT}/bin/gcc.exe",
+                    "CMAKE_CXX_COMPILER": "${env.MINGW64_ROOT}/bin/g++.exe"
+                }
+            ]
+        }
+    ]
+} 

@@ -1,0 +1,12 @@
+{
+    "cmake.configureOnOpen": false,
+    "files.associations": {
+        "*.h": "cpp",
+        "*.cpp": "cpp",
+        "*.ui": "xml"
+    },
+    "terminal.integrated.env.windows": {
+        "PATH": "${env:PATH};C:/Qt/6.7.2/mingw_64/bin;C:/Qt/Tools/mingw1310_64/bin"
+    },
+    "C_Cpp.default.configurationProvider": "ms-vscode.cpptools"
+} 

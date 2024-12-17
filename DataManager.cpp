@@ -12,7 +12,9 @@ std::atomic<uint> ClickData::counter{0};
 
 DataManager::DataManager()
     : currentClickData(new ClickData())
-{}
+{
+    loadDataFromXml("MouseMoveData.xml");
+}
 
 DataManager::~DataManager()
 {
